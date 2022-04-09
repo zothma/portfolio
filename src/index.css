@@ -14,3 +14,7 @@ svg {
     height: 30px;
     width: 30px;
 }
+
+h1, h2 {
+    font-family: theme('fontFamily.ubuntu');
+}
