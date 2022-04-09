@@ -7,7 +7,12 @@ module.exports = {
       'orange': '#DB5A42',
       'black': '#4D4B44',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+        'ubuntu': ['Ubuntu', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
