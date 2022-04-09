@@ -7,3 +7,9 @@ html, body, #root {
     width: 100%;
     color: theme('colors.black');
 }
+
+svg {
+    fill: theme('colors.black');
+    height: 30px;
+    width: 30px;
+}
