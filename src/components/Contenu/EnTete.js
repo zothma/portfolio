@@ -3,12 +3,12 @@
 
 import BoutonFleche from "../BoutonFleche";
 
-export default function Presentation() {
+export default function EnTete() {
   return (
     <div id="top" className="relative">
-      <div className="z-0 bg-code bg-fixed bg-cover bg-center blur-sm w-full h-[100vh]"></div>
+      <div className="z-0 bg-code bg-fixed bg-cover bg-center blur-sm w-full h-screen"></div>
 
-      <div className="z-10 absolute top-0 bg-none flex justify-center items-center w-full h-[100vh] p-20 gap-36">
+      <div className="z-10 absolute top-0 bg-none flex justify-center items-center w-full h-screen p-20 gap-36">
         <img 
           src="/assets/profil.jpg" 
           alt="Identité"
