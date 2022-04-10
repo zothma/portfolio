@@ -9,7 +9,7 @@ export default function BoutonFleche(props) {
   }
 
   return (
-    <a href={props.lien} className="inline-flex gap-3">
+    <a href={props.lien} className="icon-fleche inline-flex gap-3">
       {titre}
       <Fleche />
     </a>  
