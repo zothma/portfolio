@@ -1,4 +1,4 @@
-import {ReactComponent as Fleche} from "../../icons/arrow-down.svg";
+import {ReactComponent as Fleche} from "../icons/arrow-down.svg";
 
 // Représente un bouton, avec ou sans texte, et contenant une flèche vers le bas
 export default function BoutonFleche(props) {

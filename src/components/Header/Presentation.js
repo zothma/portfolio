@@ -1,13 +1,14 @@
 // Une en-tête de présentation rapide
 // Premier élément visible sur la page
 
-import BoutonFleche from "../Navigation/BoutonFleche";
+import BoutonFleche from "../BoutonFleche";
 
 export default function Presentation() {
   return (
-    <div className="relative">
+    <div id="top" className="relative">
+      <div className="z-0 bg-code bg-fixed bg-cover bg-center blur-sm w-full h-[100vh]"></div>
 
-      <div className="flex justify-center items-center w-full h-[100vh] p-20 gap-36">
+      <div className="z-10 absolute top-0 bg-none flex justify-center items-center w-full h-[100vh] p-20 gap-36">
         <img 
           src="/assets/profil.jpg" 
           alt="Identité"
@@ -24,7 +25,7 @@ export default function Presentation() {
         </div>
       </div>
 
-      <div className="absolute flex justify-center inset-x-0 bottom-5">
+      <div className="z-20 absolute flex justify-center inset-x-0 bottom-5">
         <BoutonFleche lien="#présentation"/>
       </div>
     </div>

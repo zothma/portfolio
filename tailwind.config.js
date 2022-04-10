@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
         'ubuntu': ['Ubuntu', 'sans-serif']
+      },
+      backgroundImage: {
+        'code': "url('../public/assets/fond-code.png')"
       }
     },
   },
