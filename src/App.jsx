@@ -1,4 +1,5 @@
 import './App.css';
+import ArticleAPropos from './components/Contenu/ArticleAPropos';
 import Presentation from './components/Contenu/EnTete';
 import NavBar from './components/Navigation/NavBar';
 
@@ -9,9 +10,10 @@ function App() {
         <NavBar />
       </header>
       <main>
-        <header>
+        <header className='mb-20'>
           <Presentation />
         </header>
+        <ArticleAPropos />
       </main>
     </div>
   );

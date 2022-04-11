@@ -7,6 +7,8 @@ html, body, #root {
     width: 100%;
     color: theme('colors.black');
     background-color: theme('colors.white');
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
 }
 
 svg {
