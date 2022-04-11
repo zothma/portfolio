@@ -19,7 +19,7 @@ export default function EnTete() {
           <h1 className="text-7xl font-bold pb-5">
             Enzo MAROS<span className="text-orange">.</span>
           </h1>
-          <h2 className="text-5xl">
+          <h2 className="text-5xl font-normal">
             Étudiant en développement informatique
           </h2>
         </div>

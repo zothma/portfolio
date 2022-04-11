@@ -21,7 +21,7 @@ function NavBar() {
   }, []);
 
   return (
-    <nav className={"fixed z-50 w-full px-20 transition-all flex justify-between items-center bg-[#fff] shadow-md " + taille}>
+    <nav className={"fixed z-50 w-full px-20 transition-all duration-300 flex justify-between items-center bg-[#fff] shadow-md " + taille}>
       <NavBarTitre>Portfolio</NavBarTitre>
       <NavBarMenu/>
       <NavBarSocial/>
