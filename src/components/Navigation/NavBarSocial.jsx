@@ -9,7 +9,7 @@ function NavBarSocial() {
   ];
 
   return (
-    <ul className="flex gap-5">
+    <ul className="flex justify-end gap-5 w-44">
       {reseaux.map(el => {
         // Récupération des éléments concernant un réseau
         const {icon, text, url} = el;
