@@ -1,12 +1,16 @@
+import PropTypes from "prop-types";
+
 // Titre suivi d'un point de couleur
-function NavBarTitre(props) {
+export default function NavBarTitre(props) {
   return (
       <h2 className="font-bold text-3xl">
-      <a href="/index.html">
-          {props.children}<span className="text-orange">.</span>
-      </a>
+        <a href="/index.html">
+            {props.children}<span className="text-orange">.</span>
+        </a>
       </h2>
   );
 }
 
-export default NavBarTitre;
+NavBarTitre.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired
+};

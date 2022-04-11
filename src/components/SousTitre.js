@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function SousTitre(props) {
   // Un titre est composé d'un # suivi du nom du titre
 
@@ -8,3 +10,7 @@ export default function SousTitre(props) {
     </h2>
   );
 }
+
+SousTitre.propTypes = {
+  titre: PropTypes.string.isRequired
+};
