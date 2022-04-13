@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { TLBarreFond, TLBarreParcouru } from "./TLBarre";
+import TLMarqueur, { Formes } from './TLMarqueur';
 
 
 export default function Timeline({dateDebut, dateFin, espacement, parcouru}) {
@@ -13,10 +14,29 @@ export default function Timeline({dateDebut, dateFin, espacement, parcouru}) {
   const taille = (dateFin - dateDebut) * espacement + MARGE;
   const tailleParcourue = (dateFin - dateDebut) * (parcouru/100) * espacement + MARGE;
 
+  // Positions de chaque marqueur
+  let marqueurs = [];
+  for (let i = 0; i <= (dateFin - dateDebut); i++) {
+    marqueurs.push(MARGE + i * espacement);
+  }
+
   return (
-    <div className='grid justify-center justify-items-center'>
-      <TLBarreFond taille={taille} />
-      <TLBarreParcouru taille={tailleParcourue} />
+    <div className='relative'>
+      {/* Div des barres */}
+      <div className='grid justify-center justify-items-center'>
+        <TLBarreFond taille={taille} />
+        <TLBarreParcouru taille={tailleParcourue} />
+      </div>
+
+      {/* Div des marqueurs */}
+      <div className='absolute top-0 left-1/2'>
+        {marqueurs.map((pos, i) => {
+          const parcouru = pos <= tailleParcourue; // Le marqueur est dans la zone parcourue ?
+          let type = Formes.trait;
+
+          return <TLMarqueur parcouru={parcouru} forme={type} position={pos} key={dateDebut + i} />
+        })}
+      </div>
     </div>
   )
 }

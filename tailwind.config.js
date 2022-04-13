@@ -16,6 +16,9 @@ module.exports = {
       },
       backgroundImage: {
         'code': "url('../public/assets/fond-code.png')"
+      },
+      borderWidth: {
+        '6': '6px'
       }
     },
   },
