@@ -8,7 +8,8 @@ export default function ArticleFormation() {
       <Timeline 
         dateDebut={2018} 
         dateFin={2024} 
-        espacement={150} />
+        espacement={150}
+        parcouru={40} />
       
     </Article>
   )
