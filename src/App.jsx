@@ -1,5 +1,6 @@
 import './App.css';
 import ArticleAPropos from './components/Contenu/ArticleAPropos';
+import ArticleFormation from './components/Contenu/ArticleFormation';
 import Presentation from './components/Contenu/EnTete';
 import NavBar from './components/Navigation/NavBar';
 
@@ -14,6 +15,7 @@ function App() {
           <Presentation />
         </header>
         <ArticleAPropos />
+        <ArticleFormation />
       </main>
     </div>
   );
