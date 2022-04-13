@@ -9,7 +9,8 @@ export default function ArticleFormation() {
         dateDebut={2018} 
         dateFin={2024} 
         espacement={150}
-        parcouru={40} />
+        parcouru={40}
+        marqueurs={[2018, 2021]} />
       
     </Article>
   )

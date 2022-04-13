@@ -3,7 +3,7 @@ import { TLBarreFond, TLBarreParcouru } from "./TLBarre";
 import TLMarqueur, { Formes } from './TLMarqueur';
 
 
-export default function Timeline({dateDebut, dateFin, espacement, parcouru}) {
+export default function Timeline({dateDebut, dateFin, espacement, parcouru, marqueurs}) {
   // Définition abstraite de la timeline. Ce composant sert de support et de point de
   // repère pour tous les sous-éléments (barres, données...)
   
@@ -15,9 +15,9 @@ export default function Timeline({dateDebut, dateFin, espacement, parcouru}) {
   const tailleParcourue = (dateFin - dateDebut) * (parcouru/100) * espacement + MARGE;
 
   // Positions de chaque marqueur
-  let marqueurs = [];
+  let marqueursPos = [];
   for (let i = 0; i <= (dateFin - dateDebut); i++) {
-    marqueurs.push(MARGE + i * espacement);
+    marqueursPos.push(MARGE + i * espacement);
   }
 
   return (
@@ -30,9 +30,9 @@ export default function Timeline({dateDebut, dateFin, espacement, parcouru}) {
 
       {/* Div des marqueurs */}
       <div className='absolute top-0 left-1/2'>
-        {marqueurs.map((pos, i) => {
+        {marqueursPos.map((pos, i) => {
           const parcouru = pos <= tailleParcourue; // Le marqueur est dans la zone parcourue ?
-          let type = Formes.trait;
+          let type = (marqueurs.includes(dateDebut + i)) ? Formes.cercle : Formes.trait;
 
           return <TLMarqueur parcouru={parcouru} forme={type} position={pos} key={dateDebut + i} />
         })}
@@ -49,5 +49,7 @@ Timeline.propTypes = {
   /** Taille entre deux marqueurs */
   espacement: PropTypes.number.isRequired,
   /** Pourcentage de la barre parcouru */
-  parcouru: PropTypes.number.isRequired
+  parcouru: PropTypes.number.isRequired,
+  /** Marqueurs à ajouter */
+  marqueurs: PropTypes.arrayOf(PropTypes.number)
 }
