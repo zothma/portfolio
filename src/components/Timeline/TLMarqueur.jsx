@@ -9,7 +9,7 @@ const Formes = {
 
 function Choix(props) {
   // Renvoie un ? formaté pour le type choix
-  const couleurTexte = props.parcouru ? "text-orange" : "text-gris";
+  const couleurTexte = props.parcouru ? "text-orange" : "text-grey";
   
   return <span className={'font-ubuntu font-bold ' + couleurTexte}>?</span>
 }

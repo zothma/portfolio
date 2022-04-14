@@ -25,3 +25,7 @@ svg {
 h1, h2 {
     font-family: theme('fontFamily.ubuntu');
 }
+
+.moitie {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
