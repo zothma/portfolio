@@ -7,7 +7,7 @@ export default function TLBranche({dateDebut, dateFin, espacement, nom, marqueur
 
   // Une partie de la taille a déjà été dessinée par le séparateur
   const TAILLE_SEP = 24;
-  const MARGE = 30;
+  const MARGE = 50;
 
   const taille = (dateFin - dateDebut) * espacement - TAILLE_SEP + MARGE;
 

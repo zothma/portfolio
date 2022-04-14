@@ -13,11 +13,11 @@ export default function TLData({date, texteDate, titre, parcouru, orientation, c
   // Définition des styles
   const styleCouleur = parcouru ? "text-orange" : "text-grey";
   const styleAlignement = (orientation === Orientations.gauche) ? "text-right" : "text-left";
-  const stylePosition = (orientation === Orientations.gauche) ? "right-1/2 pr-14" : "left-1/2 pl-14";
+  const stylePosition = (orientation === Orientations.gauche) ? "right-1/2 pr-20" : "left-1/2 pl-20";
 
   return (
     <div
-      className={['absolute', stylePosition, styleAlignement].join(' ')} >
+      className={['absolute flex flex-col gap-5 leading-8', stylePosition, styleAlignement].join(' ')} >
 
       <h3 className='font-bold font-ubuntu text-3xl'>
         <span className={styleCouleur}>{texteDate}</span> : {titre}

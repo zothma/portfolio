@@ -65,17 +65,17 @@ export default function Timeline({dateDebut, dateFin, espacement, parcouru, marq
             <TLBranche 
               dateDebut={dateFin} 
               dateFin={dateFinGlobal} 
-              espacement={espacement}
-              marqueurs={[2024]}
-              nom="Master" />
+              espacement={espacement} 
+              nom="Ingénieur" />
           </div>
 
           <div className='-translate-x-1/2'>
             <TLBranche 
               dateDebut={dateFin} 
               dateFin={dateFinGlobal} 
-              espacement={espacement} 
-              nom="Ingénieur" />
+              espacement={espacement}
+              marqueurs={[2024]}
+              nom="Master" />
           </div>
         </div>
       </> }
