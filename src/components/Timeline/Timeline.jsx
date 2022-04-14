@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import { TLBarreFond, TLBarreParcouru } from "./TLBarre";
 import TLBranche from './TLBranche';
+import TLData from './TLData';
 import TLMarqueur, { Formes } from './TLMarqueur';
 import TLSeparateur from './TLSeparateur';
 
 
-export default function Timeline({dateDebut, dateFin, espacement, parcouru, marqueurs, separation}) {
+export default function Timeline({dateDebut, dateFin, espacement, parcouru, marqueurs, separation, children}) {
   // Définition abstraite de la timeline. Ce composant sert de support et de point de
   // repère pour tous les sous-éléments (barres, données...)
   
@@ -22,6 +23,12 @@ export default function Timeline({dateDebut, dateFin, espacement, parcouru, marq
   let marqueursPos = [];
   for (let i = 0; i <= (dateFin - dateDebut); i++) {
     marqueursPos.push(MARGE + i * espacement);
+  }
+
+  // Récupération des TLData depuis les children
+  let donnees = [];
+  if (Array.isArray(children)) {
+    donnees = children.filter(el => el.type);
   }
 
   return (
@@ -72,6 +79,21 @@ export default function Timeline({dateDebut, dateFin, espacement, parcouru, marq
           </div>
         </div>
       </> }
+
+      {/* Div des données TLData */}
+      <div>
+        {donnees.map(el => {
+          // calcul de la position par rapport au haut
+          const position = (el.props.date - dateDebut) * espacement + MARGE - 18;
+          const parcouru = position < tailleParcourue;
+
+          return <div className='absolute w-full left-0' key={el.props.date} style={{top: position}}>
+            <TLData
+              {...el.props}
+              parcouru={parcouru} />
+          </div>
+        })}
+      </div>
     </div>
   )
 }

@@ -20,7 +20,7 @@ export default function TLBranche({dateDebut, dateFin, espacement, nom, marqueur
 
   return (
     <div className='relative'>
-      {/* div des barres de fond et du texte */}
+      {/* div des barres de fond et du nom de la branche */}
       <div className='grid justify-items-center'>
         <TLBarreFond taille={taille} jonction />
         <div className='row-start-2 col-start-1 row-end-3 col-end-2 border-grey border-r-4 border-dashed h-10'></div>
@@ -40,9 +40,6 @@ export default function TLBranche({dateDebut, dateFin, espacement, nom, marqueur
           return <TLMarqueur parcouru={false} forme={type} position={pos} key={dateDebut + i} />
         })}
       </div>
-
-
-      {/* Ajout du nom de la branche */}
     </div>
   )
 }
