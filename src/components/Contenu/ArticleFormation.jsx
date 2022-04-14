@@ -10,6 +10,12 @@ import { ReactComponent as IconeSpecialite } from "../../icons/pencil-rule.svg";
 import Bouton from "../Bouton";
 
 export default function ArticleFormation() {
+  // Calcul du pourcentage parcouru jusqu'à 2023 (date de branchement) en fonction
+  // de la date actuelle
+  const debut = new Date("2018-09-01").getTime();
+  const fin = new Date("2023-09-01").getTime();
+  const parcours = (Date.now()  - debut) / (fin - debut) * 100;
+
   return (
     <Article titre="Formation" id="formation">
 
@@ -17,7 +23,7 @@ export default function ArticleFormation() {
         dateDebut={2018}
         dateFin={2024}
         espacement={90}
-        parcouru={40}
+        parcouru={parcours}
         marqueurs={[2018, 2021]}
         separation={2023}>
 
