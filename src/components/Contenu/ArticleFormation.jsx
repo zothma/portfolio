@@ -7,6 +7,7 @@ import { ReactComponent as IconeLieu } from "../../icons/map-pin.svg";
 import { ReactComponent as IconeDiplome } from "../../icons/file-paper.svg";
 import { ReactComponent as IconeOptions } from "../../icons/add-circle.svg";
 import { ReactComponent as IconeSpecialite } from "../../icons/pencil-rule.svg";
+import Bouton from "../Bouton";
 
 export default function ArticleFormation() {
   return (
@@ -35,6 +36,7 @@ export default function ArticleFormation() {
             <IconeOptions className="inline mr-2 align-top" />
             Mathématiques expertes, anglais littéraire
           </p>
+          <Bouton url="https://www.data.gouv.fr/fr/datasets/programmes-denseignement-de-terminale-generale-reforme-du-baccalaureat-2021/#resources" texte="Accéder au programme national" />
         </TLData>
 
         <TLData date={2019} orientation={Orientations.droite} texteDate="2019 et 2021" titre="Diplômes d'allemand" >
@@ -60,6 +62,7 @@ export default function ArticleFormation() {
             <p>Développement logiciel, développement Web, base de données, gestion de systèmes (Linux), gestion de projet</p>
           </div>
 
+          <Bouton url="#" texte="Découvrir le programme" />
         </TLData>
 
         <TLData date={2024} orientation={Orientations.gauche} texteDate="2024 - 2026" titre="Objectif Bac+5" >

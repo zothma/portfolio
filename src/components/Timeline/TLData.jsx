@@ -12,7 +12,7 @@ export default function TLData({date, texteDate, titre, parcouru, orientation, c
 
   // Définition des styles
   const styleCouleur = parcouru ? "text-orange" : "text-grey";
-  const styleAlignement = (orientation === Orientations.gauche) ? "text-right" : "text-left";
+  const styleAlignement = (orientation === Orientations.gauche) ? "text-right items-end" : "text-left items-start";
   const stylePosition = (orientation === Orientations.gauche) ? "right-1/2 pr-20" : "left-1/2 pl-20";
 
   return (
