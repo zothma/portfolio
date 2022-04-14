@@ -29,3 +29,8 @@ h1, h2 {
 .moitie {
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
 }
+
+.text-bas-haut {
+    /* Texte aligné de bas vers haut */
+    writing-mode: vertical-rl;
+}

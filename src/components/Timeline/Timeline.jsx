@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { TLBarreFond, TLBarreParcouru } from "./TLBarre";
+import TLBranche from './TLBranche';
 import TLMarqueur, { Formes } from './TLMarqueur';
 import TLSeparateur from './TLSeparateur';
 
@@ -48,8 +49,29 @@ export default function Timeline({dateDebut, dateFin, espacement, parcouru, marq
 
       </div>
 
-      {/* Séparateur en sous-branches */}
-      { separation == null ? <></> : <TLSeparateur /> }
+      {/* Séparation en sous-branches */}
+      { separation == null ? <></> : <>
+        <TLSeparateur />
+
+        <div className="flex gap-11">
+          <div className='translate-x-1/2'>
+            <TLBranche 
+              dateDebut={dateFin} 
+              dateFin={dateFinGlobal} 
+              espacement={espacement}
+              marqueurs={[2024]}
+              nom="Master" />
+          </div>
+
+          <div className='-translate-x-1/2'>
+            <TLBranche 
+              dateDebut={dateFin} 
+              dateFin={dateFinGlobal} 
+              espacement={espacement} 
+              nom="Ingénieur" />
+          </div>
+        </div>
+      </> }
     </div>
   )
 }
