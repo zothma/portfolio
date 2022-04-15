@@ -17,7 +17,10 @@ module.exports = {
       },
       borderWidth: {
         '6': '6px'
-      }
+      },
+      backgroundImage: {
+        'code': "url('../public/assets/fond-code.png')"
+      },
     },
   },
   plugins: [],
