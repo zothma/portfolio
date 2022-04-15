@@ -1,4 +1,4 @@
-import Fleche from "../public/icons/arrow-down.svg";
+import Fleche from './Icons/ArrowDown';
 import PropTypes from "prop-types";
 
 // Représente un bouton, avec ou sans texte, et contenant une flèche vers le bas
@@ -12,7 +12,7 @@ export default function BoutonFleche(props) {
   return (
     <a href={props.lien} className="inline-flex gap-3">
       {titre}
-      <Fleche  />
+      <Fleche className="w-[70px] h-[70px]" />
     </a>  
   )
 }

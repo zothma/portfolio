@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import IconeDL from '../public/icons/download.svg'
-import IconeExterne from '../public/icons/external-link.svg'
+import IconeDL from './Icons/Download'
+import IconeExterne from './Icons/ExternalLink'
 
 export const TypesBtn = {
   telechargement: Symbol("téléchargement"),

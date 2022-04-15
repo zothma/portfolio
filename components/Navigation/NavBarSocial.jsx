@@ -1,5 +1,5 @@
-import GitHub from "../../public/icons/github.svg";
-import LinkedIn from "../../public/icons/linkedin.svg";
+import GitHub from "../Icons/Github";
+import LinkedIn from "../Icons/Linkedin";
 
 // Menu des réseaux
 function NavBarSocial() {

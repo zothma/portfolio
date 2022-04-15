@@ -3,10 +3,10 @@ import TLData, { Orientations } from "../Timeline/TLData";
 import Article from "./Article";
 
 // Importation des SVG
-import IconeLieu from "../../public/icons/map-pin.svg";
-import IconeDiplome from "../../public/icons/file-paper.svg";
-import IconeOptions from "../../public/icons/add-circle.svg";
-import IconeSpecialite from "../../public/icons/pencil-rule.svg";
+import IconeLieu from "../Icons/MapPin";
+import IconeDiplome from "../Icons/FilePaper";
+import IconeOptions from "../Icons/AddCircle";
+import IconeSpecialite from "../Icons/PencilRule";
 import Bouton from "../Bouton";
 
 export default function ArticleFormation() {
