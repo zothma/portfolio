@@ -8,6 +8,7 @@ export default function NavBarTitre(props) {
       <h2 className={"font-bold transition-all duration-300 w-44 " + (props.petit ? "text-3xl" : "text-4xl")}>
         {props.children}<span className="text-orange">.</span>
       </h2>
+      <IconMenu className="lg:hidden cursor-pointer" />
     </div>
   );
 }
