@@ -14,7 +14,7 @@ import Bouton from "../Bouton";
 function obtenirTaille(tailleEcran) {
   // Retourne la taille de la timeline selon l'écran
   let newTaille;
-  if (window.innerWidth < 768) newTaille = 140;
+  if (window.innerWidth < 768) newTaille = 125;
   else if (window.innerWidth < 1280) newTaille = 120;
   else newTaille = 90;
 

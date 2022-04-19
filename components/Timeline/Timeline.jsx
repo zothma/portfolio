@@ -34,7 +34,7 @@ export default function Timeline({ dateDebut, dateFin, espacement, parcouru, mar
 
   return (
     <div className='relative align-top'>
-      <div className='relative flex flex-col items-center w-min xl:w-auto'>
+      <div className='hidden relative sm:flex flex-col items-center w-min xl:w-auto'>
         {/* Div des barres */}
         <div className='grid justify-center justify-items-center'>
           <TLBarreFond taille={taille} />
@@ -90,7 +90,7 @@ export default function Timeline({ dateDebut, dateFin, espacement, parcouru, mar
           const position = (el.props.date - dateDebut) * espacement + MARGE - 18;
           const parcouru = position < tailleParcourue;
 
-          return <div className='absolute w-full left-0' key={el.props.date} style={{ top: position }}>
+          return <div className='mb-10 sm:absolute sm:w-full sm:left-0' key={el.props.date} style={{ top: position }}>
             <TLData
               {...el.props}
               parcouru={parcouru} />

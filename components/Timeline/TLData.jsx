@@ -18,7 +18,7 @@ export default function TLData({date, texteDate, titre, parcouru, orientation, c
 
   return (
     <div
-      className={['absolute flex flex-col gap-5 leading-8 items-start pl-32', stylePosition, styleAlignement].join(' ')} >
+      className={['sm:absolute flex flex-col gap-5 leading-8 items-start pl-0 sm:pl-32', stylePosition, styleAlignement].join(' ')} >
 
       <h3 className='font-bold font-ubuntu text-2xl lg:text-3xl'>
         <span className={styleCouleur}>{texteDate}</span> : {titre}
