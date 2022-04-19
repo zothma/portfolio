@@ -10,7 +10,8 @@ function TLBarre({taille, epaisseur, couleur, jonction}) {
   return (
     // Pour superposer les deux barres, on les place sur le même emplacement de la grille
     <div className={['row-start-1 row-end-2 col-start-1 col-end-2', epaisseur, couleur, styleBord].join(' ')}
-      style={styleLigne} />
+      style={styleLigne}
+      suppressHydrationWarning />
   )
 }
 
