@@ -14,8 +14,8 @@ import Bouton from "../Bouton";
 function obtenirTaille(tailleEcran) {
   // Retourne la taille de la timeline selon l'écran
   let newTaille;
-  if (window.innerWidth < 768) newTaille = 125;
-  else if (window.innerWidth < 1280) newTaille = 120;
+  if (tailleEcran < 768) newTaille = 125;
+  else if (tailleEcran < 1280) newTaille = 120;
   else newTaille = 90;
 
   return newTaille;
@@ -66,7 +66,7 @@ export default function ArticleFormation() {
             <IconeOptions className="inline mr-2 align-top" />
             Mathématiques expertes, anglais littéraire
           </p>
-          <Bouton url="https://www.data.gouv.fr/fr/datasets/programmes-denseignement-de-terminale-generale-reforme-du-baccalaureat-2021/#resources" texte="Accéder au programme national" />
+          <Bouton url="https://www.data.gouv.fr/fr/datasets/programmes-denseignement-de-terminale-generale-reforme-du-baccalaureat-2021/#resources" texte="Programme national" />
         </TLData>
 
         {
