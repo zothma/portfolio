@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types'
 
 export default function CarteCompetences(props) {
-  console.log(props.children);
-
   // Le premier mot apparaît en orange, le reste en gris
   const [mot1, ...mots] = props.titre.split(" ")
 

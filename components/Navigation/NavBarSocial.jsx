@@ -9,7 +9,7 @@ function NavBarSocial() {
   ];
 
   return (
-    <ul className="flex flex-col lg:flex-row justify-end gap-5 w-20">
+    <ul className="flex flex-col lg:flex-row justify-end items-center gap-10 lg:gap-5 lg:w-20 text-lg">
       {reseaux.map(el => {
         // Récupération des éléments concernant un réseau
         const {icon, text, url} = el;
@@ -17,7 +17,8 @@ function NavBarSocial() {
 
         return <li key={text.toLowerCase()}>
           <a href={url}>
-            <Icon/>
+            <Icon className="inline-block mr-3 lg:mr-0"/>
+            <span className="align-middle lg:hidden">{text}</span>
           </a>
         </li>
       })}
