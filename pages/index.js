@@ -12,7 +12,7 @@ export default function Home() {
         <meta name="title" content="Enzo MAROS - Portfolio" />
         <meta name="description" content="Étudiant à l'IUT de Lannion, je suis en formation BUT Informatique afin de devenir à terme développeur." />
         <meta name="author" content="Enzo MAROS" />
-        <meta name="theme-color" content="#DB5A42" />
+        <meta name="theme-color" content="#4D4B44" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://enzo-maros.fr/" />

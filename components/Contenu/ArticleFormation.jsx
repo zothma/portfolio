@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react'
+
 import Timeline from "../Timeline/Timeline";
 import TLData, { Orientations } from "../Timeline/TLData";
 import Article from "./Article";
@@ -9,12 +11,34 @@ import IconeOptions from "../Icons/AddCircle";
 import IconeSpecialite from "../Icons/PencilRule";
 import Bouton from "../Bouton";
 
+function obtenirTaille(tailleEcran) {
+  // Retourne la taille de la timeline selon l'écran
+  let newTaille;
+  if (tailleEcran < 768) newTaille = 125;
+  else if (tailleEcran < 1280) newTaille = 120;
+  else newTaille = 90;
+
+  return newTaille;
+}
+
 export default function ArticleFormation() {
+  // La timeline est plus grande lorsque l'écran est réduit
+  const tailleMin = 90;
+  const [taille, setTaille] = useState(tailleMin);
+
+  useEffect(() => {
+    setTaille(obtenirTaille(window.innerWidth));
+
+    window.addEventListener("resize", () => {
+      setTaille(obtenirTaille(window.innerWidth));
+    });
+  }, [])
+
   // Calcul du pourcentage parcouru jusqu'à 2023 (date de branchement) en fonction
   // de la date actuelle
   const debut = new Date("2018-09-01").getTime();
   const fin = new Date("2023-09-01").getTime();
-  const parcours = (Date.now()  - debut) / (fin - debut) * 100;
+  const parcours = (Date.now() - debut) / (fin - debut) * 100;
 
   return (
     <Article titre="Formation" id="formation">
@@ -22,7 +46,7 @@ export default function ArticleFormation() {
       <Timeline
         dateDebut={2018}
         dateFin={2024}
-        espacement={90}
+        espacement={taille}
         parcouru={parcours}
         marqueurs={[2018, 2021]}
         separation={2023}>
@@ -42,18 +66,20 @@ export default function ArticleFormation() {
             <IconeOptions className="inline mr-2 align-top" />
             Mathématiques expertes, anglais littéraire
           </p>
-          <Bouton url="https://www.data.gouv.fr/fr/datasets/programmes-denseignement-de-terminale-generale-reforme-du-baccalaureat-2021/#resources" texte="Accéder au programme national" />
+          <Bouton url="https://www.data.gouv.fr/fr/datasets/programmes-denseignement-de-terminale-generale-reforme-du-baccalaureat-2021/#resources" texte="Programme national" />
         </TLData>
 
-        <TLData date={2019} orientation={Orientations.droite} texteDate="2019 et 2021" titre="Diplômes d'allemand" >
-          <div className="flex gap-2">
-            <IconeDiplome className="flex-shrink-0" />
-            <p>
-              <a className="underline underline-offset-4 flex-grow-0" href="https://allemagneenfrance.diplo.de/fr-fr/-/1995798" target={"_blank"} rel="noreferrer">Deutsches Sprachdiplom</a>, niveau B1 <br />
-              <a className="underline underline-offset-4 flex-grow-0" href="https://www.goethe.de/ins/fr/fr/sta/tou/prf/gzb2.html" target={"_blank"} rel="noreferrer">Goethe Zertifikat</a>, niveau B2
-            </p>
-          </div>
-        </TLData>
+        {
+          taille !== tailleMin ? <></> : <TLData date={2019} orientation={Orientations.droite} texteDate="2019 et 2021" titre="Diplômes d'allemand" >
+            <div className="flex gap-2">
+              <IconeDiplome className="flex-shrink-0" />
+              <p>
+                <a className="underline underline-offset-4 flex-grow-0" href="https://allemagneenfrance.diplo.de/fr-fr/-/1995798" target={"_blank"} rel="noreferrer">Deutsches Sprachdiplom</a>, niveau B1 <br />
+                <a className="underline underline-offset-4 flex-grow-0" href="https://www.goethe.de/ins/fr/fr/sta/tou/prf/gzb2.html" target={"_blank"} rel="noreferrer">Goethe Zertifikat</a>, niveau B2
+              </p>
+            </div>
+          </TLData>
+        }
 
         <TLData date={2021} orientation={Orientations.droite} texteDate="2021 - 2024" titre="Bachelor Universitaire de Technologie (BUT) Informatique" >
           <div className="flex gap-2">

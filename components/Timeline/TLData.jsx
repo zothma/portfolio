@@ -12,14 +12,15 @@ export default function TLData({date, texteDate, titre, parcouru, orientation, c
 
   // Définition des styles
   const styleCouleur = parcouru ? "text-orange" : "text-grey";
-  const styleAlignement = (orientation === Orientations.gauche) ? "text-right items-end" : "text-left items-start";
-  const stylePosition = (orientation === Orientations.gauche) ? "right-1/2 pr-20" : "left-1/2 pl-20";
+  // La direction de l'alignement n'est effectif que lorsque la fenêtre est assez grande
+  const styleAlignement = (orientation === Orientations.gauche) ? "xl:text-right xl:items-end" : "";
+  const stylePosition = (orientation === Orientations.gauche) ? "xl:left-0 xl:right-1/2 xl:pl-0 xl:pr-20" : "xl:left-1/2 xl:pl-20";
 
   return (
     <div
-      className={['absolute flex flex-col gap-5 leading-8', stylePosition, styleAlignement].join(' ')} >
+      className={['sm:absolute flex flex-col gap-5 leading-8 items-start pl-0 sm:pl-32', stylePosition, styleAlignement].join(' ')} >
 
-      <h3 className='font-bold font-ubuntu text-3xl'>
+      <h3 className='font-bold font-ubuntu text-2xl lg:text-3xl'>
         <span className={styleCouleur}>{texteDate}</span> : {titre}
       </h3>
 

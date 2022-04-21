@@ -37,7 +37,7 @@ export default function ArticleCompetences() {
   return (
     <Article id="competences" titre="Compétences" >
       <div className="flex flex-col gap-8">
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
           <CarteCompetences titre="Web Front">
             <IconHTML />
             <IconCSS />
@@ -58,7 +58,7 @@ export default function ArticleCompetences() {
             <IconDart />
           </CarteCompetences>
         </div>
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
           <CarteCompetences titre="Outils">
             <IconGitHub />
             <IconGit />
