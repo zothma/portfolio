@@ -28,7 +28,7 @@ export default function EnTete() {
         </div>
       </div>
 
-      <div className="z-20 absolute flex justify-center inset-x-0 bottom-5">
+      <div className="z-0 absolute flex justify-center inset-x-0 bottom-5">
         <BoutonFleche lien="#présentation"/>
       </div>
     </div>

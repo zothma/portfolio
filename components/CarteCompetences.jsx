@@ -5,7 +5,7 @@ export default function CarteCompetences(props) {
   const [mot1, ...mots] = props.titre.split(" ")
 
   return (
-    <div className='bg-[#fff] p-8 rounded-3xl flex-grow flex-shrink basis-0 shadow-lg'>
+    <div className='relative bg-[#fff] p-8 rounded-3xl flex-grow flex-shrink basis-0 shadow-lg'>
       <h3 className='font-ubuntu font-bold text-3xl mb-8'>
         <span className='text-orange'>{mot1} </span>
         {mots}
