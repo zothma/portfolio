@@ -64,7 +64,7 @@ export default function SectionProjets() {
   return (
     <section id="projets" className="flex overflow-x-scroll snap-x snap-mandatory">
       {
-        projData.map((el, i) => <Projet data={el} key={i} />)
+        projData.map((el, i) => <Projet key={i} {...el} />)
       }
     </section>
   )
