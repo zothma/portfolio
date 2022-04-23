@@ -1,9 +1,12 @@
+import { Gamepad, Global, Lightbulb } from "../Icons";
 import Projet from "../Projets/Projet";
 
 export default function SectionProjets() {
   const projData = [
     {
       titre: "Implémentation du jeu de Yams",
+      icon: Gamepad,
+      image: "yams/feuille-score-vierge.png",
       fond: "bg-black",
       texte: "text-white",
       dates: "Octobre - Novembre 2021",
@@ -21,6 +24,8 @@ export default function SectionProjets() {
 
     {
       titre: "Fabrik Ta Pépite",
+      icon: Lightbulb,
+      image: "fabrik-ta-pepite.png",
       fond: "bg-[#fff]",
       dates: "Novembre 2021 - Février 2022",
       equipe: true,
@@ -39,7 +44,10 @@ export default function SectionProjets() {
 
     {
       titre: "Site vitrine - KohFrais",
+      icon: Global,
+      image: "kohfrais.png",
       dates: "Novembre 2021 - Janvier 2022",
+      temps: 120,
       equipe: true,
       description: "KohFrais, une entreprise de vente de produits surgelés et de glaces, souhaitait " +
         "disposer d'un <b>site vitrine</b> pour se faire connaître. En équipe, nous avons <b>extrait leurs " +
@@ -56,7 +64,7 @@ export default function SectionProjets() {
   return (
     <section id="projets" className="flex overflow-x-scroll snap-x snap-mandatory">
       {
-        projData.map((el, i) => <Projet color={el.fond} key={i} />)
+        projData.map((el, i) => <Projet data={el} key={i} />)
       }
     </section>
   )
