@@ -28,14 +28,14 @@ function Projet(props) {
   }
 
   return (
-    <article ref={ref} className={"h-[90vh] min-w-full snap-center px-28 py-14 " + props.fond + " " + props.texte}>
+    <article ref={ref} className={"md:h-[90vh] min-w-full snap-center px-8 md:px-10 lg:px-20 xl:px-32 py-14 " + props.fond + " " + props.texte}>
       <h2 className='text-4xl text-center font-bold mb-8'>
-        <Icon className={"inline w-16 h-16 align-middle mb-2 mr-7 " + props.texte} />
+        <Icon className={"inline w-10 h-10 md:w-16 md:h-16 align-middle mb-2 mr-3 md:mr-7 " + props.texte} />
         {props.titre}
       </h2>
 
-      <div className='flex text-lg items-start'>
-        <div className='shrink-0 mr-12'>
+      <div className='text-lg items-start lg:items-center'>
+        <div className='float-left hidden md:block md:shrink-0 mr-12 max-w-max w-60 lg:w-80 xl:w-96'>
           <Image src={props.image} quality={100} className="self-center" />
         </div>
 
@@ -81,7 +81,7 @@ function Projet(props) {
           <p className='mb-8'><strong>Compétences :</strong> {props.competences.join(", ")}</p>
 
           {/* Liens externes */}
-          <div className='flex flex-wrap gap-x-8 gap-y-3'>
+          <div className='flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-3'>
             {props.liens.map(genereLien)}
           </div>
         </div>
