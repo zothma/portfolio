@@ -1,5 +1,6 @@
 import { Gamepad, Global, Lightbulb } from "../Icons";
-import  * as LocalImage from "../../public/assets/projets"
+import * as LocalImage from "../../public/assets/projets"
+import * as Logos from "../Icons/Logos";
 import Projet from "../Projets/Projet";
 
 export default function SectionProjets() {
@@ -20,6 +21,9 @@ export default function SectionProjets() {
         "implémenter",
         "documenter",
         "tester"
+      ],
+      technologies: [
+        Logos.C
       ]
     },
 
@@ -58,6 +62,15 @@ export default function SectionProjets() {
         "extraire des besoins",
         "maquetter",
         "travailler en équipe"
+      ],
+      technologies: [
+        Logos.Html5,
+        Logos.Css3,
+        Logos.Bootstrap
+      ],
+      outils: [
+        Logos.Figma,
+        Logos.Git
       ]
     }
   ]

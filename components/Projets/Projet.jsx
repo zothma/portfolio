@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import { useInView } from 'react-intersection-observer'
 import { CalendarEvent, Group, Time, User } from '../Icons';
 
+function genererIcone(Icon, i) {
+  return <Icon key={i} className="inline mr-2 h-7 w-auto" />
+}
+
 function Projet(props) {
   // Définit si le bloc est visible à 10%
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -26,7 +30,9 @@ function Projet(props) {
           <Image src={props.image} quality={100} className="self-center" />
         </div>
 
+        {/* Contenu principal */}
         <div>
+          {/* Caractéristiques du projet (date, temps, equipe) */}
           <div className='flex flex-wrap gap-x-12 gap-y-3 mb-3'>
             <p className='flex items-center gap-3 shrink-0'>
               <CalendarEvent className={props.texte} />
@@ -46,8 +52,23 @@ function Projet(props) {
             {texteEquipe}
           </p>
 
+          {/* Description du projet */}
           <h3 className='text-2xl font-bold mb-5'>Description</h3>
-          <p className='mb-10' dangerouslySetInnerHTML={{__html: props.description}}></p>
+          <p className='mb-10' dangerouslySetInnerHTML={{ __html: props.description }}></p>
+
+          {/* Informations complémentaires  (technologies, compétences) */}
+          <div className='flex flex-wrap gap-x-10 gap-y-3 mb-3'>
+            {
+              props.technologies && <p>
+                <strong>Technologies :</strong> {props.technologies.map(genererIcone)}
+              </p>
+            }
+            {
+              props.outils && <p>
+                <strong>Outils :</strong> {props.outils.map(genererIcone)}
+              </p>
+            }
+          </div>
 
           <p><strong>Compétences :</strong> {props.competences.join(", ")}</p>
         </div>
@@ -76,7 +97,9 @@ Projet.propTypes = {
   texteEquipe: PropTypes.string,
   /** Contenu */
   description: PropTypes.string.isRequired,
-  competences: PropTypes.arrayOf(PropTypes.string).isRequired
+  technologies: PropTypes.arrayOf(PropTypes.func),
+  outils: PropTypes.arrayOf(PropTypes.func),
+  competences: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default Projet
