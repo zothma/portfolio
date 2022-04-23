@@ -23,7 +23,8 @@ function Projet(props) {
   const genereLien = (lien, i) => {
     // Retourne le bouton coresspondant aux données du lien
     const type = lien.url.startsWith("https://github.com") ? TypesBtn.github : TypesBtn.externe;
-    return <Bouton type={type} key={i} {...lien} /> 
+    const blanc = props.fond === "bg-black";
+    return <Bouton type={type} key={i} blanc={blanc} {...lien} /> 
   }
 
   return (
@@ -77,7 +78,7 @@ function Projet(props) {
               </p>
             }
           </div>
-          <p className='mb-12'><strong>Compétences :</strong> {props.competences.join(", ")}</p>
+          <p className='mb-8'><strong>Compétences :</strong> {props.competences.join(", ")}</p>
 
           {/* Liens externes */}
           <div className='flex flex-wrap gap-x-8 gap-y-3'>
