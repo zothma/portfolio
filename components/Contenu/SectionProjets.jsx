@@ -1,4 +1,5 @@
 import { Gamepad, Global, Lightbulb } from "../Icons";
+import  * as LocalImage from "../../public/assets/projets"
 import Projet from "../Projets/Projet";
 
 export default function SectionProjets() {
@@ -6,9 +7,9 @@ export default function SectionProjets() {
     {
       titre: "Implémentation du jeu de Yams",
       icon: Gamepad,
-      image: "yams/feuille-score-vierge.png",
+      image: LocalImage.Yams,
       fond: "bg-black",
-      texte: "text-white",
+      texte: "text-white fill-white",
       dates: "Octobre - Novembre 2021",
       temps: 20,
       equipe: false,
@@ -25,11 +26,11 @@ export default function SectionProjets() {
     {
       titre: "Fabrik Ta Pépite",
       icon: Lightbulb,
-      image: "fabrik-ta-pepite.png",
+      image: LocalImage.FabrikTaPepite,
       fond: "bg-[#fff]",
       dates: "Novembre 2021 - Février 2022",
       equipe: true,
-      texteEquipe: "Concours entrepreneurial",
+      texteEquipe: "Concours entrepreneurial en équipe",
       description: "Dans le cadre du <b>concours entrepreneurial</b>, et par groupe de jeunes étudiants, nous " +
         "avions 3 mois pour trouver une <b>idée d'entreprise innovante</b> et la développer. " +
         "Notre équipe a eu pour idée de créer une <b>application anti-tabac</b>, Fuzway, dont l'innovation " +
@@ -45,7 +46,7 @@ export default function SectionProjets() {
     {
       titre: "Site vitrine - KohFrais",
       icon: Global,
-      image: "kohfrais.png",
+      image: LocalImage.KohFrais,
       dates: "Novembre 2021 - Janvier 2022",
       temps: 120,
       equipe: true,
