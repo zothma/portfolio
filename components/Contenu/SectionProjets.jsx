@@ -29,6 +29,9 @@ export default function SectionProjets() {
       outils: [
         Logos.Figma,
         Logos.Git
+      ],
+      liens: [
+        {url: "https://github.com/zothma/kohfrais"}
       ]
     },
 
@@ -49,9 +52,13 @@ export default function SectionProjets() {
         "faire preuve de créativité",
         "anticiper",
         "défendre un projet"
+      ],
+      liens: [
+        {url: "https://www.pepitebretagne.fr/fabrik-ta-pepite-3-mois-pour-exploser-ton-idee", texte: "Découvrir le concours"},
+        {url: "https://drive.google.com/drive/folders/1ebsTWhAVJLo_0OtBO2G9IrFOpx1axAB6?usp=sharing", texte: "Consulter les rendus"}
       ]
     },
-    
+
     {
       titre: "Implémentation du jeu de Yams",
       icon: Gamepad,
@@ -71,6 +78,9 @@ export default function SectionProjets() {
       ],
       technologies: [
         Logos.C
+      ],
+      liens: [
+        {url: "https://github.com/zothma/yams"}
       ]
     },
   ]

@@ -17,7 +17,7 @@ export default function Bouton(props) {
   const Icone = icons[props.type];
 
   return (
-    <a href={props.url} className='inline-flex items-center h-12 font-ubuntu border-4 rounded-full px-5 border-orange text-orange'>
+    <a href={props.url} className='inline-flex items-center h-12 font-ubuntu border-4 rounded-full px-4 border-orange text-orange shrink-0'>
       {<Icone className='h-6 w-6 mr-3 fill-orange' />}
       {props.type === TypesBtn.github ? "Ouvrir sur GitHub" : props.texte}
     </a>

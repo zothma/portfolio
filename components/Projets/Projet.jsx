@@ -1,11 +1,8 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types'
 import { useInView } from 'react-intersection-observer'
+import Bouton, { TypesBtn } from '../Bouton';
 import { CalendarEvent, Group, Time, User } from '../Icons';
-
-function genererIcone(Icon, i) {
-  return <Icon key={i} className="inline mr-2 h-7 w-auto" />
-}
 
 function Projet(props) {
   // Définit si le bloc est visible à 10%
@@ -17,6 +14,17 @@ function Projet(props) {
   if (props.texteEquipe !== undefined) texteEquipe = props.texteEquipe;
   else if (props.equipe) texteEquipe = "Projet réalisé en équipe"
   else texteEquipe = "Projet réalisé seul"
+
+  // Définition des fonctions de génération
+  const genererIcone = (Icon, i) => {
+    return <Icon key={i} className="inline mr-2 h-7 w-auto" />
+  }
+
+  const genereLien = (lien, i) => {
+    // Retourne le bouton coresspondant aux données du lien
+    const type = lien.url.startsWith("https://github.com") ? TypesBtn.github : TypesBtn.externe;
+    return <Bouton type={type} key={i} {...lien} /> 
+  }
 
   return (
     <article ref={ref} className={"h-[90vh] min-w-full snap-center px-28 py-14 " + props.fond + " " + props.texte}>
@@ -54,7 +62,7 @@ function Projet(props) {
 
           {/* Description du projet */}
           <h3 className='text-2xl font-bold mb-5'>Description</h3>
-          <p className='mb-10' dangerouslySetInnerHTML={{ __html: props.description }}></p>
+          <p className='mb-8' dangerouslySetInnerHTML={{ __html: props.description }}></p>
 
           {/* Informations complémentaires  (technologies, compétences) */}
           <div className='flex flex-wrap gap-x-10 gap-y-3 mb-3'>
@@ -69,8 +77,12 @@ function Projet(props) {
               </p>
             }
           </div>
+          <p className='mb-12'><strong>Compétences :</strong> {props.competences.join(", ")}</p>
 
-          <p><strong>Compétences :</strong> {props.competences.join(", ")}</p>
+          {/* Liens externes */}
+          <div className='flex flex-wrap gap-x-8 gap-y-3'>
+            {props.liens.map(genereLien)}
+          </div>
         </div>
       </div>
 
@@ -100,6 +112,13 @@ Projet.propTypes = {
   technologies: PropTypes.arrayOf(PropTypes.func),
   outils: PropTypes.arrayOf(PropTypes.func),
   competences: PropTypes.arrayOf(PropTypes.string).isRequired,
+  /** Liens externes */
+  liens: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      texte: PropTypes.string
+    })
+  ).isRequired
 }
 
 export default Projet
