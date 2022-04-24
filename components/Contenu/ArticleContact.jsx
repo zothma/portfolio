@@ -4,7 +4,7 @@ import Article from "./Article";
 export default function ArticleContact() {
   return (
     <Article id="contact" titre="Me contacter">
-      <p className="text-center mx-36 mb-8">
+      <p className="text-center md:mx-36 mb-8">
         <strong>Mon profil vous intéresse ? </strong>
         N'hésitez pas à me contacter par mail ou par téléphone pour échanger. Vous pouvez aussi consulter mes profils sur LinkedIn et GitHub
       </p>
@@ -36,7 +36,7 @@ export default function ArticleContact() {
         </a>
       </p>
 
-      <p className="text-center mx-36">
+      <p className="text-center md:mx-36">
         <Home className="inline-block mr-3" /> 1 La Perrière Billiet, 22800 Saint-Donan
       </p>
     </Article>
