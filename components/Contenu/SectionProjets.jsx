@@ -1,8 +1,11 @@
 import { useState } from "react";
 
+// Images
 import { Gamepad, Global, Lightbulb } from "../Icons";
 import * as LocalImage from "../../public/assets/projets"
 import * as Logos from "../Icons/Logos";
+
+// Composants
 import Projet from "../Projets/Projet";
 import IndicateurProjet from "../Projets/IndicateurProjet";
 
