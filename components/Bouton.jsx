@@ -23,7 +23,7 @@ export default function Bouton(props) {
 
   return (
     <a href={props.url} className={'inline-flex items-center h-12 font-ubuntu border-4 rounded-full px-4 shrink-0 ' + couleurBouton}>
-      <Icone className={'h-6 w-6 mr-3 ' + couleurIcone} />
+      <Icone className={'h-6 w-6 mr-3 ' + couleurIcone} aria-hidden="true"/>
       {props.type === TypesBtn.github ? "Ouvrir sur GitHub" : props.texte}
     </a>
   )

@@ -13,7 +13,9 @@ export default function CarteCompetences(props) {
       <div className='flex flex-wrap gap-10 justify-center'>
         {props.children?.map(el => {
           const IconType = el.type;
-          return <IconType {...el.props} className={ (el.props.className ?? "") + " w-16 h-auto"} key={IconType.name} />
+          return <div title={el.props.title} className="flex items-center" key={IconType.name}>
+            <IconType {...el.props} className={ (el.props.className ?? "") + " w-16 h-auto"} />
+          </div>
         })}
       </div>
     </div>

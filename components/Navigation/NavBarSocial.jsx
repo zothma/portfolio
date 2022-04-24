@@ -17,7 +17,7 @@ function NavBarSocial() {
 
         return <li key={text.toLowerCase()}>
           <a href={url}>
-            <Icon className="inline-block mr-3 lg:mr-0"/>
+            <Icon className="inline-block mr-3 lg:mr-0" aria-label={text}/>
             <span className="align-middle lg:hidden">{text}</span>
           </a>
         </li>
