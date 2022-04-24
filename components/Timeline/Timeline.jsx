@@ -36,13 +36,13 @@ export default function Timeline({ dateDebut, dateFin, espacement, parcouru, mar
     <div className='relative align-top'>
       <div className='hidden relative sm:flex flex-col items-center w-min xl:w-auto'>
         {/* Div des barres */}
-        <div className='grid justify-center justify-items-center'>
+        <div className='grid justify-center justify-items-center' aria-hidden="true">
           <TLBarreFond taille={taille} />
           <TLBarreParcouru taille={tailleParcourue} />
         </div>
 
         {/* Div des marqueurs */}
-        <div className='absolute top-0 left-1/2'>
+        <div className='absolute top-0 left-1/2' aria-hidden="true">
           {marqueursPos.map((pos, i) => {
             const parcouru = pos <= tailleParcourue; // Le marqueur est dans la zone parcourue ?
             const date = dateDebut + i;
@@ -62,7 +62,7 @@ export default function Timeline({ dateDebut, dateFin, espacement, parcouru, mar
         {separation == null ? <></> : <>
           <TLSeparateur />
 
-          <div className="flex gap-11">
+          <div className="flex gap-11" aria-hidden="true">
             <div className='translate-x-1/2'>
               <TLBranche
                 dateDebut={dateFin}

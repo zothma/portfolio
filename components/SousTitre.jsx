@@ -5,7 +5,7 @@ export default function SousTitre(props) {
 
   return (
     <h2 className="text-center text-4xl sm:text-5xl mb-12 font-bold">
-      <span className="text-orange mr-5">#</span>
+      <span className="text-orange mr-5" aria-hidden="true">#</span>
       {props.titre}
     </h2>
   );
