@@ -45,6 +45,9 @@ export default function Home() {
         <ArticleAPropos />
         <ArticleFormation />
         <ArticleCompetences />
+
+        <hr className="w-1/2 mx-auto mb-16 border-grey" />
+
         <SectionProjets />
       </main>
 
