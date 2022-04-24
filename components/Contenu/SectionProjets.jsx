@@ -99,7 +99,7 @@ export default function SectionProjets() {
 
   return (
     <section id="projets" className="relative">
-      <div className="flex flex-col md:flex-row md:overflow-x-scroll md:snap-x md:snap-mandatory md:scroll-smooth">
+      <div className="flex flex-col md:flex-row md:overflow-x-hidden md:snap-x md:snap-mandatory md:scroll-smooth">
         {
           projData.map((el, i) => <Projet id={i} key={i} onVisible={handleVisible(i)} {...el} />)
         }
