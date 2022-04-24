@@ -6,6 +6,7 @@ import ArticleFormation from '../components/Contenu/ArticleFormation'
 import ArticleCompetences from "../components/Contenu/ArticleCompetences";
 import SectionProjets from "../components/Contenu/SectionProjets";
 import ArticleContact from "../components/Contenu/ArticleContact";
+import Footer from "../components/Contenu/Footer";
 
 export default function Home() {
   return (
@@ -54,6 +55,7 @@ export default function Home() {
         <ArticleContact />
       </main>
 
+      <Footer />
     </div>
   )
 }
