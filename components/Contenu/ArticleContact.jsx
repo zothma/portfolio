@@ -6,7 +6,7 @@ export default function ArticleContact() {
     <Article id="contact" titre="Me contacter">
       <p className="text-center md:mx-36 mb-8">
         <strong>Mon profil vous intéresse ? </strong>
-        N'hésitez pas à me contacter par mail ou par téléphone pour échanger. Vous pouvez aussi consulter mes profils sur LinkedIn et GitHub
+        N&apos;hésitez pas à me contacter par mail ou par téléphone pour échanger. Vous pouvez aussi consulter mes profils sur LinkedIn et GitHub
       </p>
 
       <p className="flex flex-col md:flex-row items-center gap-y-5 gap-x-10 justify-center flex-wrap mb-8">
@@ -37,7 +37,7 @@ export default function ArticleContact() {
       </p>
 
       <p className="text-center md:mx-36">
-        <Home className="inline-block mr-3" aria-label="Adresse d'habitation" />
+        <Home className="inline-block mr-3" aria-label="Adresse d&apos;habitation" />
         1 La Perrière Billiet, 22800 Saint-Donan
       </p>
     </Article>

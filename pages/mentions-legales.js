@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Footer from "../components/Contenu/Footer";
 
 export default function Mentions() {
@@ -10,9 +11,11 @@ export default function Mentions() {
 
       <header>
         <h1 className="text-center text-5xl font-bold my-10">
-          <a href="/">
-            Portfolio<span className="text-orange">.</span>
-          </a>
+          <Link href="/" passHref>
+            <span className="cursor-pointer">
+              Portfolio<span className="text-orange">.</span>
+            </span>
+          </Link>
         </h1>
       </header>
 
