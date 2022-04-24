@@ -38,7 +38,7 @@ function Projet(props) {
   }
 
   return (
-    <article id={"projet" + props.id} ref={ref} className={"md:h-[90vh] min-w-full snap-center px-8 md:px-10 lg:px-20 xl:px-32 py-14 " + props.fond + " " + props.texte}>
+    <article id={"projet" + props.id} ref={ref} className={"md:h-[800px] min-w-full snap-center px-8 md:px-10 lg:px-20 xl:px-32 py-14 " + props.fond + " " + props.texte}>
       <h2 className='text-4xl text-center font-bold mb-8'>
         <Icon className={"inline w-10 h-10 md:w-16 md:h-16 align-middle mb-2 mr-3 md:mr-7 " + props.texte} aria-hidden="true" />
         {props.titre}

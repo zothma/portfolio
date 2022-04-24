@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useEffect } from "react"
 
 function IndicateurVide({ sombre }) {
   const couleurFond = sombre ? "bg-white" : "bg-black";
@@ -14,14 +15,20 @@ function IndicateurProjet({ icons, id, sombre, labels }) {
 
   const couleurIcone = sombre ? "fill-white" : "fill-black";
 
+  let handleClick = (id) => {
+    return () => {
+      document.querySelector("#projets > div").scroll(window.innerWidth * id, 0)
+    }
+  }
+
   return (
     <div className='hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 gap-3 items-center'>
       {icons.map((Icon, i) => {
         if (i == id) {
-          return <a href={"#projet" + i} aria-label={"Accéder au projet " + labels[i]} key={i}><Icon className={couleurIcone}/></a>
+          return <button onClick={handleClick(i)} aria-label={"Accéder au projet " + labels[i]} key={i}><Icon className={couleurIcone}/></button>
         }
         else {
-          return <a href={"#projet" + i} aria-label={"Accéder au projet " + labels[i]} key={i}><IndicateurVide sombre={sombre} /></a>
+          return <button onClick={handleClick(i)} aria-label={"Accéder au projet " + labels[i]} key={i}><IndicateurVide sombre={sombre} /></button>
         }
       })}
     </div>
