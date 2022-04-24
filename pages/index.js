@@ -4,6 +4,7 @@ import Presentation from "../components/Contenu/EnTete"
 import ArticleAPropos from '../components/Contenu/ArticleAPropos'
 import ArticleFormation from '../components/Contenu/ArticleFormation'
 import ArticleCompetences from "../components/Contenu/ArticleCompetences";
+import SectionProjets from "../components/Contenu/SectionProjets";
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
         <ArticleAPropos />
         <ArticleFormation />
         <ArticleCompetences />
+        <SectionProjets />
       </main>
 
     </div>

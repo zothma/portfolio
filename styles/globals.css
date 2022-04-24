@@ -8,7 +8,7 @@ html, body, #root {
   color: theme('colors.black');
   background-color: theme('colors.white');
   scroll-behavior: smooth;
-  scroll-padding-top: 9rem;
+  scroll-padding-top: 4rem;
 }
 
 svg {
