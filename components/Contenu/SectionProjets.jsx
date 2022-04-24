@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 import { Gamepad, Global, Lightbulb } from "../Icons";
 import * as LocalImage from "../../public/assets/projets"
 import * as Logos from "../Icons/Logos";
 import Projet from "../Projets/Projet";
+import IndicateurProjet from "../Projets/IndicateurProjet";
 
 export default function SectionProjets() {
+  // Données des projets
   const projData = [
     {
       titre: "Site vitrine - KohFrais",
@@ -85,11 +89,20 @@ export default function SectionProjets() {
     },
   ]
 
+  const [visible, setVisible] = useState(0);
+  const handleVisible = (id) => {
+    return () => {setVisible(id)};
+  }
+
   return (
-    <section id="projets" className="flex flex-col md:flex-row md:overflow-x-scroll md:snap-x md:snap-mandatory">
-      {
-        projData.map((el, i) => <Projet key={i} {...el} />)
-      }
+    <section id="projets" className="relative">
+      <div className="flex flex-col md:flex-row md:overflow-x-scroll md:snap-x md:snap-mandatory md:scroll-smooth">
+        {
+          projData.map((el, i) => <Projet id={i} key={i} onVisible={handleVisible(i)} {...el} />)
+        }
+      </div>
+
+      <IndicateurProjet icons={projData.map(data => data.icon)} id={visible} sombre={projData[visible].fond === "bg-black"} />
     </section>
   )
 }
