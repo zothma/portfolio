@@ -8,7 +8,7 @@ function IndicateurVide({ sombre }) {
   </div>
 }
 
-function IndicateurProjet({ icons, id, sombre }) {
+function IndicateurProjet({ icons, id, sombre, labels }) {
   // Indique quel projet est actuellement visible et offre la possibilité
   // de changer de projet au clic
 
@@ -18,10 +18,10 @@ function IndicateurProjet({ icons, id, sombre }) {
     <div className='hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 gap-3 items-center'>
       {icons.map((Icon, i) => {
         if (i == id) {
-          return <a href={"#projet" + i} key={i}><Icon className={couleurIcone}/></a>
+          return <a href={"#projet" + i} aria-label={"Accéder au projet " + labels[i]} key={i}><Icon className={couleurIcone}/></a>
         }
         else {
-          return <a href={"#projet" + i} key={i}><IndicateurVide sombre={sombre} /></a>
+          return <a href={"#projet" + i} aria-label={"Accéder au projet " + labels[i]} key={i}><IndicateurVide sombre={sombre} /></a>
         }
       })}
     </div>
@@ -39,5 +39,7 @@ IndicateurProjet.propTypes = {
   id: PropTypes.number.isRequired,
   /** Couleur sombre des éléments */
   sombre: PropTypes.bool,
+  /** Labels utilisés pour l'accessibilité */
+  labels: PropTypes.arrayOf(PropTypes.string)
 }
 export default IndicateurProjet

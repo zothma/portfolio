@@ -105,7 +105,11 @@ export default function SectionProjets() {
         }
       </div>
 
-      <IndicateurProjet icons={projData.map(data => data.icon)} id={visible} sombre={projData[visible].fond === "bg-black"} />
+      <IndicateurProjet 
+        icons={projData.map(data => data.icon)} 
+        id={visible} 
+        sombre={projData[visible].fond === "bg-black"} 
+        labels={projData.map(data => data.titre.split(' ').at(-1))} />
     </section>
   )
 }

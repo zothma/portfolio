@@ -10,7 +10,7 @@ export default function BoutonFleche(props) {
   }
 
   return (
-    <a href={props.lien} className="inline-flex gap-3">
+    <a href={props.lien} className="inline-flex gap-3" aria-label='Accéder à la présentation' title='Accéder à la présentation'>
       {titre}
       <Fleche className="w-[70px] h-[70px]" />
     </a>  

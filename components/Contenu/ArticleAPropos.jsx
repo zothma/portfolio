@@ -10,7 +10,7 @@ export default function ArticleAPropos() {
         la <strong>programmation</strong> ne m&apos;a pas quitté, et je compte bien en faire mon <strong>métier</strong>.
       </p>
       <p className="text-center">
-        <Bouton url="#" texte="Lire mon CV" type={TypesBtn.telechargement} />
+        <Bouton url="/Enzo MAROS CV.pdf" texte="Lire mon CV" type={TypesBtn.telechargement} />
       </p>
     </Article>
   )
