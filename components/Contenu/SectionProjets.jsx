@@ -39,7 +39,7 @@ export default function SectionProjets() {
         Logos.Git
       ],
       liens: [
-        {url: "https://github.com/zothma/kohfrais"}
+        { url: "https://github.com/zothma/kohfrais" }
       ]
     },
 
@@ -63,8 +63,8 @@ export default function SectionProjets() {
         "défendre un projet"
       ],
       liens: [
-        {url: "https://www.pepitebretagne.fr/fabrik-ta-pepite-3-mois-pour-exploser-ton-idee", texte: "Découvrir le concours"},
-        {url: "https://drive.google.com/drive/folders/1ebsTWhAVJLo_0OtBO2G9IrFOpx1axAB6?usp=sharing", texte: "Consulter les rendus"}
+        { url: "https://www.pepitebretagne.fr/fabrik-ta-pepite-3-mois-pour-exploser-ton-idee", texte: "Découvrir le concours" },
+        { url: "https://drive.google.com/drive/folders/1ebsTWhAVJLo_0OtBO2G9IrFOpx1axAB6?usp=sharing", texte: "Consulter les rendus" }
       ]
     },
 
@@ -90,14 +90,14 @@ export default function SectionProjets() {
         Logos.C
       ],
       liens: [
-        {url: "https://github.com/zothma/yams"}
+        { url: "https://github.com/zothma/yams" }
       ]
     },
   ]
 
   const [visible, setVisible] = useState(0);
   const handleVisible = (id) => {
-    return () => {setVisible(id)};
+    return () => { setVisible(id) };
   }
 
   return (
@@ -108,11 +108,14 @@ export default function SectionProjets() {
         }
       </div>
 
-      <IndicateurProjet 
-        icons={projData.map(data => data.icon)} 
-        id={visible} 
-        sombre={projData[visible].fond === "bg-black"} 
-        labels={projData.map(data => data.titre.split(' ').at(-1))} />
+      <IndicateurProjet
+        icons={projData.map(data => data.icon)}
+        id={visible}
+        sombre={projData[visible].fond === "bg-black"}
+        labels={projData.map(data => {
+          const mots = data.titre.split(' ');
+          return mots[mots.length - 1]
+        })} />
     </section>
   )
 }

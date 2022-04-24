@@ -37,7 +37,7 @@ export default function ArticleContact() {
       </p>
 
       <p className="text-center md:mx-36">
-        <Home className="inline-block mr-3" aria-label="Adresse d&apos;habitation" />
+        <Home className="inline-block mr-3" aria-label="Adresse d'habitation" />
         1 La Perrière Billiet, 22800 Saint-Donan
       </p>
     </Article>
