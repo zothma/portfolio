@@ -5,11 +5,16 @@ const nextConfig = {
 
 module.exports = {
   ...nextConfig,
-  webpack(config) {
+
+  webpack(config, { isServer }) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"]
     });
+
+    if (isServer) {
+      import('./scripts/sitemap-generator.mjs');
+    }
 
     return config;
   }
