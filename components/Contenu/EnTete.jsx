@@ -12,11 +12,12 @@ export default function EnTete() {
       <div className="absolute top-0 flex flex-col gap-10 justify-center items-center w-full h-screen p-20 md:p-32 md:flex-row md:gap-14 lg:gap-36">
         <span className="flex-shrink-0">
           <Image
-            src="/assets/profil.jpg" 
+            src="/assets/profil_res.jpg" 
             alt="Identité"
             height="330"
             width="330"
-            className="rounded-full w-80 h-80" />
+            className="rounded-full w-80 h-80"
+            priority={true} />
         </span>
         <div className="text-center md:text-left">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold pb-5">

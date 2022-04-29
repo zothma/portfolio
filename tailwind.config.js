@@ -19,7 +19,7 @@ module.exports = {
         '6': '6px'
       },
       backgroundImage: {
-        'code': "url('../public/assets/fond-code.png')"
+        'code': "url('../public/assets/fond-code.webp')"
       },
     },
   },
