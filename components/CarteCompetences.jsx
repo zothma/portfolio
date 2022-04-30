@@ -1,4 +1,13 @@
 import PropTypes from 'prop-types'
+import Image from 'next/image'
+
+function genererIcone({ icon, alt }) {
+  return (
+    <div title={alt} className="relative flex items-center w-16 h-16" key={alt}>
+      <Image src={"/icons/logos/" + icon} alt={alt} layout="fill" objectFit='contain' />
+    </div>
+  )
+}
 
 export default function CarteCompetences(props) {
   // Le premier mot apparaît en orange, le reste en gris
@@ -11,12 +20,7 @@ export default function CarteCompetences(props) {
         {mots}
       </h3>
       <div className='flex flex-wrap gap-10 justify-center'>
-        {props.children?.map(el => {
-          const IconType = el.type;
-          return <div title={el.props.title} className="flex items-center" key={IconType.name}>
-            <IconType {...el.props} className={ (el.props.className ?? "") + " w-16 h-auto"} />
-          </div>
-        })}
+        {props.data.map(genererIcone)}
       </div>
     </div>
   )
@@ -24,4 +28,9 @@ export default function CarteCompetences(props) {
 CarteCompetences.propTypes = {
   /** Titre de la carte */
   titre: PropTypes.string.isRequired,
+  /** Données des images */
+  data: PropTypes.arrayOf(PropTypes.shape({
+    icon: PropTypes.string,
+    alt: PropTypes.string
+  })).isRequired
 }
