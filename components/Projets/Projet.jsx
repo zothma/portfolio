@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 import Bouton, { TypesBtn } from '../Bouton';
 import { CalendarEvent, Group, Time, User } from '../Icons';
+import ParagrapheIcones from './ParagrapheIcones';
 
 function Projet(props) {
   // Définit si le bloc est visible à 50%. Cela permet de ne pase avoir deux blocs visibles en même temps
@@ -26,14 +27,6 @@ function Projet(props) {
   else texteEquipe = "Projet réalisé seul"
 
   // Définition des fonctions de génération
-  const genererIcone = ({ icon, alt }, i) => {
-    return (
-      <span className='relative inline-block h-7 w-7' key={i}>
-        <Image src={"/icons/logos/" + icon} alt={alt} layout="fill" objectFit='contain' />
-      </span>
-    )
-  }
-
   const genereLien = (lien, i) => {
     // Retourne le bouton coresspondant aux données du lien
     const type = lien.url.startsWith("https://github.com") ? TypesBtn.github : TypesBtn.externe;
@@ -81,16 +74,8 @@ function Projet(props) {
 
           {/* Informations complémentaires  (technologies, compétences) */}
           <div className='flex flex-wrap gap-x-10 gap-y-3 mb-3'>
-            {
-              props.technologies && <p className='flex gap-2'>
-                <strong>Technologies :</strong> {props.technologies.map(genererIcone)}
-              </p>
-            }
-            {
-              props.outils && <p className='flex gap-2'>
-                <strong>Outils :</strong> {props.outils.map(genererIcone)}
-              </p>
-            }
+            {props.technologies && <ParagrapheIcones titre='Technologies' icones={props.technologies} />}
+            {props.outils && <ParagrapheIcones titre='Outils' icones={props.outils} />}
           </div>
           <p className='mb-8'><strong>Compétences :</strong> {props.competences.join(", ")}</p>
 
