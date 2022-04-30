@@ -9,7 +9,7 @@ import ParagrapheIcones from './ParagrapheIcones';
 
 function Projet(props) {
   // Définit si le bloc est visible à 50%. Cela permet de ne pase avoir deux blocs visibles en même temps
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  let { ref, inView } = useInView({ threshold: 0.5, root: props.parentRef.current });
   const Icon = props.icon;
 
   // On attend que le composant soit entièrement monté avant de lancer la mise à jour
@@ -123,7 +123,9 @@ Projet.propTypes = {
     })
   ).isRequired,
   /** Action déclanchée lorsqu'il est visible */
-  onVisible: PropTypes.func.isRequired
+  onVisible: PropTypes.func.isRequired,
+  /** Référence du parent pour l'observateur */
+  parentRef: PropTypes.object.isRequired,
 }
 
 export default Projet
