@@ -26,8 +26,12 @@ function Projet(props) {
   else texteEquipe = "Projet réalisé seul"
 
   // Définition des fonctions de génération
-  const genererIcone = (Icon, i) => {
-    return <Icon key={i} className="inline mr-2 h-7 w-auto" />
+  const genererIcone = ({ icon, alt }, i) => {
+    return (
+      <span className='relative inline-block h-7 w-7' key={i}>
+        <Image src={"/icons/logos/" + icon} alt={alt} layout="fill" objectFit='contain' />
+      </span>
+    )
   }
 
   const genereLien = (lien, i) => {
@@ -78,12 +82,12 @@ function Projet(props) {
           {/* Informations complémentaires  (technologies, compétences) */}
           <div className='flex flex-wrap gap-x-10 gap-y-3 mb-3'>
             {
-              props.technologies && <p>
+              props.technologies && <p className='flex gap-2'>
                 <strong>Technologies :</strong> {props.technologies.map(genererIcone)}
               </p>
             }
             {
-              props.outils && <p>
+              props.outils && <p className='flex gap-2'>
                 <strong>Outils :</strong> {props.outils.map(genererIcone)}
               </p>
             }
@@ -123,8 +127,8 @@ Projet.propTypes = {
   texteEquipe: PropTypes.string,
   /** Contenu */
   description: PropTypes.string.isRequired,
-  technologies: PropTypes.arrayOf(PropTypes.func),
-  outils: PropTypes.arrayOf(PropTypes.func),
+  technologies: PropTypes.arrayOf(PropTypes.object),
+  outils: PropTypes.arrayOf(PropTypes.object),
   competences: PropTypes.arrayOf(PropTypes.string).isRequired,
   /** Liens externes */
   liens: PropTypes.arrayOf(

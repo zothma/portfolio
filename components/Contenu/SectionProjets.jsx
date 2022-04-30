@@ -3,7 +3,6 @@ import { useState } from "react";
 // Images
 import { Gamepad, Global, Lightbulb } from "../Icons";
 import * as LocalImage from "../../public/assets/projets"
-import * as Logos from "../Icons/Logos";
 
 // Composants
 import Projet from "../Projets/Projet";
@@ -30,13 +29,13 @@ export default function SectionProjets() {
         "travailler en équipe"
       ],
       technologies: [
-        Logos.Html5,
-        Logos.Css3,
-        Logos.Bootstrap
+        { icon: "HTML5.svg", alt: "HTML5" },
+        { icon: "CSS3.svg", alt: "CSS3" },
+        { icon: "bootstrap.svg", alt: "Bootstrap" },
       ],
       outils: [
-        Logos.Figma,
-        Logos.Git
+        { icon: "Figma.svg", alt: "Figma" },
+        { icon: "Git.svg", alt: "Git" },
       ],
       liens: [
         { url: "https://github.com/zothma/kohfrais" }
@@ -87,7 +86,7 @@ export default function SectionProjets() {
         "tester"
       ],
       technologies: [
-        Logos.C
+        { icon: "C.svg", alt: "Langage C" },
       ],
       liens: [
         { url: "https://github.com/zothma/yams" }
