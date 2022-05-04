@@ -5,6 +5,9 @@ const nextConfig = {
 
 module.exports = {
   ...nextConfig,
+  env: {
+    DATEBUILD: new Date()
+  },
 
   webpack(config, { isServer }) {
     config.module.rules.push({
