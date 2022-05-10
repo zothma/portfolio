@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   const date = new Date(process.env.DATEBUILD || Date.now());
-  const formatDate = [date.getDay(), date.getMonth(), date.getFullYear()].map(el => {
+  const formatDate = [date.getDate(), date.getMonth()+1, date.getFullYear()].map(el => {
     return el.toString().padStart(2, "0")
   }).join('/');
 
