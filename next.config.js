@@ -20,5 +20,15 @@ module.exports = {
     }
 
     return config;
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/joyeux-noel",
+        destination: "https://youtu.be/dQw4w9WgXcQ",
+        permanent: false
+      }
+    ]
   }
 }
