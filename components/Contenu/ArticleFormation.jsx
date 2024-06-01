@@ -97,7 +97,7 @@ export default function ArticleFormation() {
         </TLData>
 
         <TLData date={2024} orientation={Orientations.gauche} texteDate="2024 - 2027" titre="Objectif Bac+5">
-          <p>Je souhaite obtenir mon diplôme tout en me professionnalisant, puis poursuivre mes études en école d’ingénieur, à l'UTC de Compiègne.</p>
+          <p>Je souhaite obtenir mon diplôme tout en me professionnalisant, puis poursuivre mes études en école d’ingénieur, à l’UTC de Compiègne.</p>
         </TLData>
 
         <TLData date={2027} orientation={Orientations.droite} texteDate="2027" titre="Diplôme d'ingénieur" />
