@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react'
 import Timeline from "../Timeline/Timeline";
 import TLData, { Orientations } from "../Timeline/TLData";
 import Article from "./Article";
+import Bouton from "../Bouton";
 
 // Importation des SVG
 import IconeLieu from "../Icons/MapPin";
 import IconeDiplome from "../Icons/FilePaper";
 import IconeOptions from "../Icons/AddCircle";
 import IconeSpecialite from "../Icons/PencilRule";
-import Bouton from "../Bouton";
 
 function obtenirTaille(tailleEcran) {
   // Retourne la taille de la timeline selon l'écran
@@ -37,7 +37,7 @@ export default function ArticleFormation() {
   // Calcul du pourcentage parcouru jusqu'à 2023 (date de branchement) en fonction
   // de la date actuelle
   const debut = new Date("2018-09-01").getTime();
-  const fin = new Date("2023-09-01").getTime();
+  const fin = new Date("2027-09-01").getTime();
   const parcours = (Date.now() - debut) / (fin - debut) * 100;
 
   return (
@@ -45,13 +45,12 @@ export default function ArticleFormation() {
 
       <Timeline
         dateDebut={2018}
-        dateFin={2024}
+        dateFin={2027}
         espacement={taille}
         parcouru={parcours}
-        marqueurs={[2018, 2021]}
-        separation={2023}>
+        marqueurs={[2018, 2021, 2024, 2027]}>
 
-        <TLData date={2018} orientation={Orientations.gauche} texteDate="2018 - 2021" titre="Baccalauréat général" >
+        <TLData date={2018} orientation={Orientations.gauche} texteDate="2018 - 2021" titre="Baccalauréat général">
           <p>
             <IconeLieu className="inline mr-2 align-top" aria-label="Lieu de formation" />
             <a className="underline underline-offset-4 flex-grow-0" href="https://www.jean23-quintin.net/" target={"_blank"} rel="noreferrer">
@@ -94,13 +93,14 @@ export default function ArticleFormation() {
             <p>Développement logiciel, développement Web, base de données, gestion de systèmes (Linux), gestion de projet</p>
           </div>
 
-          <Bouton url="https://cache.media.enseignementsup-recherche.gouv.fr/file/SPE4-MESRI-17-6-2021/35/5/Annexe_17_INFO_BUT_annee_1_1411355.pdf" texte="Découvrir le programme" />
+          <Bouton url="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf" texte="Découvrir le programme" />
         </TLData>
 
-        <TLData date={2024} orientation={Orientations.gauche} texteDate="2024 - 2026" titre="Objectif Bac+5" >
-          <p>Je souhaite obtenir mon diplôme tout en me professionnalisant, puis poursuivre mes études jusqu’à Bac+5 en école d’ingénieur (dès <strong>2023</strong>) ou en master</p>
+        <TLData date={2024} orientation={Orientations.gauche} texteDate="2024 - 2027" titre="Objectif Bac+5">
+          <p>Je souhaite obtenir mon diplôme tout en me professionnalisant, puis poursuivre mes études en école d’ingénieur, à l'UTC de Compiègne.</p>
         </TLData>
 
+        <TLData date={2027} orientation={Orientations.droite} texteDate="2027" titre="Diplôme d'ingénieur" />
       </Timeline>
 
     </Article>
