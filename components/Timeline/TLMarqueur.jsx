@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import TimelineContext from '../../contexts/TimelineContext';
 
 // Les types que le marqueur peut prendre
 const Formes = {
@@ -18,11 +20,9 @@ Choix.propTypes = {
   parcouru: PropTypes.bool.isRequired
 }
 
-function TLMarqueur({parcouru, forme}) {
-  // Un marqueur peut être un trait ou un cercle, et il dispose d'une position
-  
-  // On ne peut pas décomposer les noms des styles (ex: créer une variable couleur et l'ajouter à chaque style)
-  // sinon TailwindCSS ne détecte pas le style et ne le génère pas
+function TLMarqueur({forme}) {
+  const { parcouru } = useContext(TimelineContext);
+
   const couleurFond = parcouru ? "bg-orange" : "bg-grey";
   const couleurBordure = parcouru ? "border-orange" : "border-grey";
   const tailleBordure = parcouru ? "border-6" : "border-4";
@@ -43,7 +43,6 @@ function TLMarqueur({parcouru, forme}) {
 TLMarqueur.defaultProps = { parcouru: true, forme: Formes.cercle }
 
 TLMarqueur.propTypes = {
-  parcouru: PropTypes.bool,
   forme: PropTypes.symbol
 };
 

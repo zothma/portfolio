@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import TLMarqueur, { Formes } from './TLMarqueur';
 import TLBarre from './TLBarre';
-import { Fragment } from 'react';
+import TimelineContext, { TimelineAlignement } from '../../contexts/TimelineContext';
 
 function numberToLetter(number) {
   return String.fromCharCode(65 + number - 1);
@@ -48,14 +48,17 @@ function Grid({ children }) {
       </div>
 
       {children.map((child, i) => {
-          return (
-            <Fragment key={i}>
-              <div className='min-h-[100px] lg:justify-self-center col-start-1 lg:col-start-2' style={{gridRowStart: i+1}}>
-                <TLMarqueur forme={Formes.cercle} parcouru={false} />
-              </div>
-              <div style={{gridArea: numberToLetter(i+1)}}>{child}</div>
-            </Fragment>
-          );
+        const alignement = i % 2 === 1 ? TimelineAlignement.gauche : TimelineAlignement.droite;
+        const parcouru = true;
+
+        return (
+          <TimelineContext.Provider key={i} value={{ alignement, parcouru }}>
+            <div className='min-h-[100px] lg:justify-self-center col-start-1 lg:col-start-2' style={{gridRowStart: i+1}}>
+              <TLMarqueur forme={Formes.cercle} />
+            </div>
+            <div style={{gridArea: numberToLetter(i+1)}}>{child}</div>
+          </TimelineContext.Provider>
+        );
       })}
     </div>
   );

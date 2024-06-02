@@ -1,18 +1,16 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import TimelineContext, { TimelineAlignement } from '../../contexts/TimelineContext';
 
-export default function TLData({date, texteDate, titre, parcouru, children}) {
-  // Par défaut, si aucun texte n'est passé pour la date, on utilise directement
-  // la date
+export default function TLData({date, texteDate, titre, children}) {
   texteDate = texteDate ?? String(date);
-
-  // Définition des styles
+  
+  const {alignement, parcouru} = useContext(TimelineContext);
   const styleCouleur = parcouru ? "text-orange" : "text-grey";
-  // La direction de l'alignement n'est effectif que lorsque la fenêtre est assez grande
-  // const styleAlignement = (orientation === Orientations.gauche) ? "xl:text-right xl:items-end" : "";
-  // const stylePosition = (orientation === Orientations.gauche) ? "xl:left-0 xl:right-1/2 xl:pl-0 xl:pr-20" : "xl:left-1/2 xl:pl-20";
+  const styleAlignement = (alignement === TimelineAlignement.gauche) ? "" : "lg:text-right lg:items-end";
 
   return (
-    <div className={['flex flex-col gap-5 leading-8 items-start pl-0'].join(' ')} >
+    <div className={`flex flex-col gap-5 leading-8 items-start pl-0 ${styleAlignement}`} >
       <h3 className='font-bold font-ubuntu text-2xl lg:text-3xl'>
         <span className={styleCouleur}>{texteDate}</span> : {titre}
       </h3>
@@ -32,9 +30,5 @@ TLData.propTypes = {
   /** Texte affiché pour la date, avant le titre */
   texteDate: PropTypes.string,
   /** Titre */
-  titre: PropTypes.string.isRequired,
-  /** Définit si la date associée est parcourue ou non */
-  parcouru: PropTypes.bool,
-  /** Côté sur lequel la donnée doit être écrite */
-  // orientation: PropTypes.symbol.isRequired,
+  titre: PropTypes.string.isRequired
 }
