@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 
 import Timeline from "../Timeline/Timeline";
 import TLData from "../Timeline/TLData";
@@ -8,48 +8,10 @@ import Bouton from "../Bouton";
 // Importation des SVG
 import IconeLieu from "../Icons/MapPin";
 
-function obtenirTaille(tailleEcran) {
-  // Retourne la taille de la timeline selon l'écran
-  let newTaille;
-  if (tailleEcran < 768) newTaille = 125;
-  else if (tailleEcran < 1280) newTaille = 120;
-  else newTaille = 90;
-
-  return newTaille;
-}
-
 export default function ArticleFormation() {
-  // La timeline est plus grande lorsque l'écran est réduit
-  const tailleMin = 90;
-  const [taille, setTaille] = useState(tailleMin);
-
-  useEffect(() => {
-    setTaille(obtenirTaille(window.innerWidth));
-
-    window.addEventListener("resize", () => {
-      setTaille(obtenirTaille(window.innerWidth));
-    });
-  }, [])
-
-  // Calcul du pourcentage parcouru jusqu'à 2023 (date de branchement) en fonction
-  // de la date actuelle
-  const debut = new Date("2018-09-01").getTime();
-  const fin = new Date("2027-09-01").getTime();
-  const parcours = (Date.now() - debut) / (fin - debut) * 100;
-
   return (
-    // <Article titre="Mon parcours" id="formation">
-    //   <TestGrid />
-    // </Article>
     <Article titre="Mon parcours" id="formation">
-
-      <Timeline
-        dateDebut={2018}
-        dateFin={2027}
-        espacement={taille}
-        parcouru={parcours}
-        marqueurs={[2018, 2021, 2024, 2027]}>
-
+      <Timeline enCours={4}>
         <TLData date={2018} texteDate="2018 - 2021" titre="Baccalauréat général">
           <p>
             <IconeLieu className="inline mr-2 align-top" aria-label="Lieu de formation" />
@@ -83,10 +45,22 @@ export default function ArticleFormation() {
           <p>
             <strong>Enseignements</strong>
             <br />
-            Développement logiciel, développement Web, base de données, gestion de systèmes (Linux), gestion de projet
+            Développement logiciel, développement Web, base de données, gestion de systèmes (Linux), gestion de projet.
           </p>
 
           <Bouton url="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf" texte="Découvrir le programme" />
+        </TLData>
+
+        <TLData date={2022} texteDate="2022 - 2024" titre="Alternance développeur Web Fullstack">
+          <p>
+            <IconeLieu className="inline mr-2 align-top" aria-label="Lieu de formation" />
+            Ministère des Armées, Rennes
+          </p>
+          <p>
+            <strong>Missions</strong>
+            <br />
+            Développement d'applications Web, maintenance d'applications existantes, gestion de bases de données, gestion de projets.
+          </p>
         </TLData>
 
         <TLData date={2024} texteDate="2024 - 2027" titre="Objectif Bac+5">
@@ -95,7 +69,6 @@ export default function ArticleFormation() {
 
         <TLData date={2027} texteDate="2027" titre="Diplôme d'ingénieur" />
       </Timeline>
-
     </Article>
   )
 }

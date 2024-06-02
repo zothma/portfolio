@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import TLMarqueur, { Formes } from './TLMarqueur';
-import TLBarre from './TLBarre';
 import TimelineContext, { TimelineAlignement } from '../../contexts/TimelineContext';
 
 function numberToLetter(number) {
@@ -35,7 +34,9 @@ function generateGridTemplateArea(size, staggered = false) {
   return template;
 }
 
-function Grid({ children }) {
+export default function Timeline({ enCours, children }) {
+  const childrenCount = children.length;
+  const enCoursBorne = Math.min(enCours, childrenCount);
   const gridStyle = {
     "--areas-grid": generateGridTemplateArea(children.length, true),
     "--areas-column": generateGridTemplateArea(children.length, false)
@@ -43,20 +44,20 @@ function Grid({ children }) {
 
   return (
     <div className="timeline lg:timeline__grid" style={gridStyle}>
-      <div className='justify-self-center pt-1' style={{gridArea: 'bar'}}>
-        <TLBarre couleur="bg-grey" epaisseur="w-1" taille="100%" />
-      </div>
+      {/* Barres de fond */}
+      <div className="bg-grey w-1 h-full justify-self-center mt-2" style={{gridArea: 'bar'}} />
+      <div className="bg-orange w-1.5 h-full justify-self-center mt-2" style={{gridColumnStart: "bar", gridRowStart: 1, gridRowEnd: enCoursBorne + 1}} />
 
       {children.map((child, i) => {
         const alignement = i % 2 === 1 ? TimelineAlignement.gauche : TimelineAlignement.droite;
-        const parcouru = true;
+        const parcouru = i < enCoursBorne;
 
         return (
           <TimelineContext.Provider key={i} value={{ alignement, parcouru }}>
             <div className='min-h-[100px] lg:justify-self-center col-start-1 lg:col-start-2' style={{gridRowStart: i+1}}>
               <TLMarqueur forme={Formes.cercle} />
             </div>
-            <div style={{gridArea: numberToLetter(i+1)}}>{child}</div>
+            <div style={{gridArea: numberToLetter(i + 1)}}>{child}</div>
           </TimelineContext.Provider>
         );
       })}
@@ -64,25 +65,7 @@ function Grid({ children }) {
   );
 }
 
-export default function Timeline({ dateDebut, dateFin, espacement, parcouru, marqueurs, children }) {
-  return (
-    <Grid>
-      {children}
-    </Grid>
-  );
-}
-
 Timeline.propTypes = {
-  /** Date de début globale */
-  dateDebut: PropTypes.number.isRequired,
-  /** Date de fin globale */
-  dateFin: PropTypes.number.isRequired,
-  /** Taille entre deux marqueurs */
-  espacement: PropTypes.number.isRequired,
   /** Pourcentage de la barre parcouru */
-  parcouru: PropTypes.number.isRequired,
-  /** Marqueurs à ajouter */
-  marqueurs: PropTypes.arrayOf(PropTypes.number),
-  /** Année de séparation */
-  separation: PropTypes.number
+  enCours: PropTypes.number.isRequired,
 }
