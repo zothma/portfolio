@@ -85,7 +85,6 @@ function Projet(props) {
           </div>
         </div>
       </div>
-
     </article>
   )
 }

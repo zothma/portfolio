@@ -57,30 +57,6 @@ export default function Timeline({ dateDebut, dateFin, espacement, parcouru, mar
           })}
 
         </div>
-
-        {/* Séparation en sous-branches */}
-        {separation == null ? <></> : <>
-          <TLSeparateur />
-
-          <div className="flex gap-11" aria-hidden="true">
-            <div className='translate-x-1/2'>
-              <TLBranche
-                dateDebut={dateFin}
-                dateFin={dateFinGlobal}
-                espacement={espacement}
-                nom="Ingénieur" />
-            </div>
-
-            <div className='-translate-x-1/2'>
-              <TLBranche
-                dateDebut={dateFin}
-                dateFin={dateFinGlobal}
-                espacement={espacement}
-                marqueurs={[2024]}
-                nom="Master" />
-            </div>
-          </div>
-        </>}
       </div>
 
       {/* Div des données TLData */}
