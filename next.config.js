@@ -6,7 +6,18 @@ const nextConfig = {
 module.exports = {
   ...nextConfig,
   env: {
-    DATEBUILD: new Date()
+    DATEBUILD: new Date(),
+    LINKS: {
+      GITHUB: "https://github.com/zothma",
+      LINKEDIN: "https://www.linkedin.com/in/enzo-maros/",
+      PROGRAMME_BAC: "https://www.data.gouv.fr/fr/datasets/programmes-denseignement-de-terminale-generale-reforme-du-baccalaureat-2021/#resources",
+      PROGRAMME_BUT: "https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf",
+      DSD: "https://eduscol.education.fr/1139/certification-de-langue-allemande",
+      GOETHE: "https://www.goethe.de/ins/fr/fr/sta/par/prf/gzb2.cfm",
+      IUT_LANNION: "https://iut-lannion.univ-rennes1.fr/",
+    },
+    MAILTO: "enzo.maros@gmail.com",
+    PHONE: "+33 7 55 61 76 80",
   },
 
   webpack(config, { isServer }) {

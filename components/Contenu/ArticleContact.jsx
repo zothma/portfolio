@@ -10,35 +10,30 @@ export default function ArticleContact() {
       </p>
 
       <p className="flex flex-col md:flex-row items-center gap-y-5 gap-x-10 justify-center flex-wrap mb-8">
-        <a href="tel:+33755617680">
+        <a href={`tel:${process.env.PHONE.replaceAll(' ', '')}`}>
           <Phone className="inline-block mr-3" aria-label="Téléphone" />
           <span className="underline underline-offset-4">
-            +33 7 55 61 76 80
+            {process.env.PHONE}
           </span>
         </a>
-        <a href="mailto:enzo.maros@gmail.com">
-          <Mail className="inline-block mr-3" aria-label="E-mail" />
+        <a href={`mailto:${process.env.MAILTO}`}>
+          <Mail className="inline-block mr-3" aria-label="e-mail" />
           <span className="underline underline-offset-4">
-            enzo.maros@gmail.com
+            {process.env.MAILTO}
           </span>
         </a>
-        <a href="https://fr.linkedin.com/in/enzo-maros">
+        <a href={process.env.LINKS.LINKEDIN}>
           <Linkedin className="inline-block mr-3" aria-hidden="true" />
           <span className="underline underline-offset-4">
             LinkedIn
           </span>
         </a>
-        <a href="https://github.com/zothma">
+        <a href={process.env.LINKS.GITHUB}>
           <Github className="inline-block mr-3" aria-hidden="true" />
           <span className="underline underline-offset-4">
             GitHub
           </span>
         </a>
-      </p>
-
-      <p className="text-center md:mx-36">
-        <Home className="inline-block mr-3" aria-label="Adresse d'habitation" />
-        1 La Perrière Billiet, 22800 Saint-Donan
       </p>
     </Article>
   )

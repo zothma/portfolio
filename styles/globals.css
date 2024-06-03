@@ -34,3 +34,19 @@ h1, h2 {
   /* Texte aligné de bas vers haut */
   writing-mode: vertical-rl;
 }
+
+@layer components {
+  .timeline {
+    display: grid;
+    column-gap: 30px;
+    row-gap: 70px;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: var(--areas-column);
+  }
+
+  .timeline__grid {
+    column-gap: 45px;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: var(--areas-grid);
+  }
+}

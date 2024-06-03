@@ -1,117 +1,71 @@
 import PropTypes from 'prop-types'
-
-import { TLBarreFond, TLBarreParcouru } from "./TLBarre";
-import TLBranche from './TLBranche';
-import TLData from './TLData';
 import TLMarqueur, { Formes } from './TLMarqueur';
-import TLSeparateur from './TLSeparateur';
+import TimelineContext, { TimelineAlignement } from '../../contexts/TimelineContext';
 
+function numberToLetter(number) {
+  return String.fromCharCode(65 + number - 1);
+}
 
-export default function Timeline({ dateDebut, dateFin, espacement, parcouru, marqueurs, separation, children }) {
-  // Définition abstraite de la timeline. Ce composant sert de support et de point de
-  // repère pour tous les sous-éléments (barres, données...)
-
-  // Définition des constantes
-  const MARGE = 30;
-  const dateFinGlobal = dateFin;            // Utilisée par les sous-branches
-  dateFin = separation ?? dateFinGlobal;    // Utilisée par la branche principale
-
-  // Tailles totale et parcourue de la branche principale
-  const taille = (dateFin - dateDebut) * espacement + MARGE;
-  const tailleParcourue = (dateFin - dateDebut) * (parcouru / 100) * espacement + MARGE;
-
-  // Positions de chaque marqueur de la branche principale
-  let marqueursPos = [];
-  for (let i = 0; i <= (dateFin - dateDebut); i++) {
-    marqueursPos.push(MARGE + i * espacement);
+/**
+ * Génère une chaîne de caractères représentant le modèle de grille CSS pour les zones de template.
+ * @param {number} size - La taille de la grille.
+ * @param {boolean} staggered - Indique si les zones doivent être décalées en alternance.
+ * @returns {string} - Le modèle de grille CSS généré.
+ */
+function generateGridTemplateArea(size, staggered = false) {
+  let template = "";
+  
+  for (let line = 0; line < size; line++) {
+      if (staggered) {
+        if (line % 2 === 0) {
+            const area = numberToLetter(line);
+            const nextArea = numberToLetter(line + 1);
+            template += `"${line == size ? '.' : nextArea} bar ${line == 0 ? '.' : area}" `;
+        } else {
+            const area = numberToLetter(line);
+            const nextArea = numberToLetter(line + 1);
+            template += `"${area} bar ${line == size ? '.' : nextArea}" `;
+        }
+      } else {
+        template += `"bar ${numberToLetter(line + 1)}" `;
+      }
   }
 
-  // Récupération des TLData depuis les children
-  let donnees = [];
-  if (Array.isArray(children)) {
-    donnees = children.filter(el => el.type === TLData);
-  }
+  return template;
+}
+
+export default function Timeline({ enCours, children }) {
+  const childrenCount = children.length;
+  const enCoursBorne = Math.min(enCours, childrenCount);
+  const gridStyle = {
+    "--areas-grid": generateGridTemplateArea(children.length, true),
+    "--areas-column": generateGridTemplateArea(children.length, false)
+  };
 
   return (
-    <div className='relative align-top'>
-      <div className='hidden relative sm:flex flex-col items-center w-min xl:w-auto'>
-        {/* Div des barres */}
-        <div className='grid justify-center justify-items-center' aria-hidden="true">
-          <TLBarreFond taille={taille} />
-          <TLBarreParcouru taille={tailleParcourue} />
-        </div>
+    <div className="timeline lg:timeline__grid" style={gridStyle}>
+      {/* Barres de fond */}
+      <div className="bg-grey w-1 h-full justify-self-center mt-2" style={{gridArea: 'bar'}} />
+      <div className="bg-orange w-1.5 h-full justify-self-center mt-2" style={{gridColumnStart: "bar", gridRowStart: 1, gridRowEnd: enCoursBorne + 1}} />
 
-        {/* Div des marqueurs */}
-        <div className='absolute top-0 left-1/2' aria-hidden="true">
-          {marqueursPos.map((pos, i) => {
-            const parcouru = pos <= tailleParcourue; // Le marqueur est dans la zone parcourue ?
-            const date = dateDebut + i;
+      {children.map((child, i) => {
+        const alignement = i % 2 === 1 ? TimelineAlignement.gauche : TimelineAlignement.droite;
+        const parcouru = i < enCoursBorne;
 
-            // Choix du bon type
-            let type;
-            if (date === separation) type = Formes.choix;               // (?)
-            else if (marqueurs.includes(date)) type = Formes.cercle;    // ( )
-            else type = Formes.trait;                                   // ---
-
-            return <TLMarqueur parcouru={parcouru} forme={type} position={pos} key={dateDebut + i} />
-          })}
-
-        </div>
-
-        {/* Séparation en sous-branches */}
-        {separation == null ? <></> : <>
-          <TLSeparateur />
-
-          <div className="flex gap-11" aria-hidden="true">
-            <div className='translate-x-1/2'>
-              <TLBranche
-                dateDebut={dateFin}
-                dateFin={dateFinGlobal}
-                espacement={espacement}
-                nom="Ingénieur" />
+        return (
+          <TimelineContext.Provider key={i} value={{ alignement, parcouru }}>
+            <div className='min-h-[100px] lg:justify-self-center col-start-1 lg:col-start-2' style={{gridRowStart: i+1}}>
+              <TLMarqueur forme={Formes.cercle} />
             </div>
-
-            <div className='-translate-x-1/2'>
-              <TLBranche
-                dateDebut={dateFin}
-                dateFin={dateFinGlobal}
-                espacement={espacement}
-                marqueurs={[2024]}
-                nom="Master" />
-            </div>
-          </div>
-        </>}
-      </div>
-
-      {/* Div des données TLData */}
-      <div>
-        {donnees.map(el => {
-          // calcul de la position par rapport au haut
-          const position = (el.props.date - dateDebut) * espacement + MARGE - 18;
-          const parcouru = position < tailleParcourue;
-
-          return <div className='mb-10 sm:absolute sm:w-full sm:left-0' key={el.props.date} style={{ top: position }}>
-            <TLData
-              {...el.props}
-              parcouru={parcouru} />
-          </div>
-        })}
-      </div>
+            <div style={{gridArea: numberToLetter(i + 1)}}>{child}</div>
+          </TimelineContext.Provider>
+        );
+      })}
     </div>
-  )
+  );
 }
 
 Timeline.propTypes = {
-  /** Date de début globale */
-  dateDebut: PropTypes.number.isRequired,
-  /** Date de fin globale */
-  dateFin: PropTypes.number.isRequired,
-  /** Taille entre deux marqueurs */
-  espacement: PropTypes.number.isRequired,
   /** Pourcentage de la barre parcouru */
-  parcouru: PropTypes.number.isRequired,
-  /** Marqueurs à ajouter */
-  marqueurs: PropTypes.arrayOf(PropTypes.number),
-  /** Année de séparation */
-  separation: PropTypes.number
+  enCours: PropTypes.number.isRequired,
 }

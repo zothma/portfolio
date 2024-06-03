@@ -1,21 +1,19 @@
 import PropTypes from 'prop-types'
-import SousTitre from "../SousTitre";
+import Titre from "../Titre";
 
-export default function Article(props) {
-  // Un article définit un sous-titre, un contenu et dispose d'un identifiant
+/**
+ * Définit un article avec un titre.
+ */
+export default function Article({ id, titre, children }) {
   return (
-    <article id={props.id} className='mx-8 md:mx-24 lg:mx-32 mt-20 mb-28 text-lg sm:text-xl scroll-mt-20'>
-      <SousTitre titre={props.titre}/>
-      {props.children}
+    <article id={id} className='px-8 md:px-24 lg:px-32 mx-auto max-w-[1500px] mt-20 mb-32 text-lg sm:text-xl scroll-mt-20'>
+      <Titre titre={titre} niveau={2}/>
+      {children}
     </article>
   );
 }
 
 Article.propTypes = {
   titre: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
+  id: PropTypes.string.isRequired
 };
