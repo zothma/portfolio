@@ -58,7 +58,7 @@ export default function ArticleFormation() {
           <p>
             <strong>Missions</strong>
             <br />
-            Développement d'applications Web, maintenance d'applications existantes, gestion de bases de données, gestion de projets.
+            Développement d&apos;applications Web, maintenance d&apos;applications existantes, gestion de bases de données, gestion de projets.
           </p>
         </TLData>
 
