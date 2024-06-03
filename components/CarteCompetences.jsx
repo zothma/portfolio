@@ -9,9 +9,9 @@ function Competence({ icon, alt }) {
   )
 }
 
-export default function CarteCompetences(props) {
+export default function CarteCompetences({titre, data}) {
   // Le premier mot apparaît en orange, le reste en gris
-  const [premierMot, ...mots] = props.titre.split(" ")
+  const [premierMot, ...mots] = titre.split(" ")
 
   return (
     <div className='relative bg-[#fff] p-8 rounded-3xl flex-grow flex-shrink basis-0 shadow-lg'>
@@ -21,7 +21,7 @@ export default function CarteCompetences(props) {
       </h3>
 
       <div className='flex flex-wrap gap-10 justify-center'>
-        {props.data.map(props => <Competence {...props} />)}
+        {data.map((props, i) => <Competence key={i} {...props} />)}
       </div>
     </div>
   )
