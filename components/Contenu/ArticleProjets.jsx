@@ -73,13 +73,13 @@ export default function ArticleProjets() {
           <TypeProjet type="etudiant" competences={[1, 5]} />
           <p>
             <em>
-              Célèbre jeu aux 5 dés, j'ai développé le Yams en C dans le cadre de mon premier projet universitaire.
+              Célèbre jeu aux 5 dés, j&apos;ai développé le Yams en C dans le cadre de mon premier projet universitaire.
             </em>
           </p>
 
           <p>
-            Ce projet a été l'occasion de mettre à profit mes compétences de développement dans un projet complet,
-            mené de bout en bout, et dont les conditions de réalisation m'étaient données.
+            Ce projet a été l&apos;occasion de mettre à profit mes compétences de développement dans un projet complet,
+            mené de bout en bout, et dont les conditions de réalisation m&apos;étaient données.
           </p>
 
           <p>
@@ -97,13 +97,13 @@ export default function ArticleProjets() {
 
           <p>
             <em>
-              Premier projet de groupe, KohFrais est un site vitrine à destination d'un vendeur de produits glacés breton.
+              Premier projet de groupe, KohFrais est un site vitrine à destination d&apos;un vendeur de produits glacés breton.
             </em>
           </p>
 
           <p>
-            Au cours de ce projet, j'ai pu découvrir les méthodes de travail en équipe, la répartition des tâches et la gestion de projet.
-            J'ai également pu mettre en pratique mes compétences en développement Web (HTML, CSS et JS) tout en collaborant avec Git.
+            Au cours de ce projet, j&apos;ai pu découvrir les méthodes de travail en équipe, la répartition des tâches et la gestion de projet.
+            J&apos;ai également pu mettre en pratique mes compétences en développement Web (HTML, CSS et JS) tout en collaborant avec Git.
           </p>
 
           <p>
@@ -122,13 +122,13 @@ export default function ArticleProjets() {
           <p>
             <em>
               Fabrik ta Pépite est un concours entrepreneurial annuel pour les étudiants français.
-              En équipe, nous avons imaginé pendant 3 mois la création d'une entreprise autour d'une idée innovante.
+              En équipe, nous avons imaginé pendant 3 mois la création d&apos;une entreprise autour d&apos;une idée innovante.
             </em>
           </p>
 
           <p>
-            Dans le cadre de ce projet, j'ai découvert et mis en pratique les différentes étapes de la création d'une entreprise.
-            Notre idée devant fédérer autour de la lutte anti-tabac, nous nous sommes orientés vers la conception d'une appli mobile.
+            Dans le cadre de ce projet, j&apos;ai découvert et mis en pratique les différentes étapes de la création d&apos;une entreprise.
+            Notre idée devant fédérer autour de la lutte anti-tabac, nous nous sommes orientés vers la conception d&apos;une appli mobile.
           </p>
 
           <p>
@@ -152,7 +152,7 @@ export default function ArticleProjets() {
           </p>
 
           <p>
-            Ce projet a été conçu, designé, développé et déployé par mes soins afin d'offrir une fenêtre sur mon parcours et mes compétences.
+            Ce projet a été conçu, designé, développé et déployé par mes soins afin d&apos;offrir une fenêtre sur mon parcours et mes compétences.
           </p>
 
           <p>
@@ -165,12 +165,12 @@ export default function ArticleProjets() {
 
           <p>
             <em>
-              Afin d'aider les ressources humaines à gérer les congés, j'ai amélioré un module VBA Excel existant.
+              Afin d&apos;aider les ressources humaines à gérer les congés, j&apos;ai amélioré un module VBA Excel existant.
             </em>
           </p>
 
           <p>
-            En parallèle de l'implémentation de nouvelles fonctionnalités, j'ai participé à une refonte du code existant pour le rendre plus lisible et maintenable.
+            En parallèle de l&apos;implémentation de nouvelles fonctionnalités, j&apos;ai participé à une refonte du code existant pour le rendre plus lisible et maintenable.
             Plusieurs points ont été améliorés et optimisés pour un traitement efficace des données.
           </p>
 
@@ -185,14 +185,14 @@ export default function ArticleProjets() {
 
           <p>
             <em>
-              Les prestations en restauration permettent aux agents d'organiser et financer des repas exceptionnels.
+              Les prestations en restauration permettent aux agents d&apos;organiser et financer des repas exceptionnels.
             </em>
           </p>
 
           <p>
             Autrefois traitées manuellement par Excel, les demandes sont maintenant centralisées dans une application Web.
-            J'ai eu la charge du développement ex nihilo de cette application, de sa conception à sa mise en production.
-            J'ai pu choisir le modèle de données, l'architecture logicielle, et la stack technique.
+            J&apos;ai eu la charge du développement ex nihilo de cette application, de sa conception à sa mise en production.
+            J&apos;ai pu choisir le modèle de données, l&apos;architecture logicielle, et la stack technique.
           </p>
 
           <p>
@@ -206,15 +206,15 @@ export default function ArticleProjets() {
 
           <p>
             <em>
-              Afin d'aider la cellule comptabilité à définir le budget annuel, j'ai développé un module permettant
+              Afin d&apos;aider la cellule comptabilité à définir le budget annuel, j&apos;ai développé un module permettant
               de collecter les besoins de chaque service.
             </em>
           </p>
 
           <p>
-            Projet d'envergure, j'ai conçu une application Web s'intégrant dans un SI comptable en cours de développement.
-            J'ai pris en compte chaque échange avec les nombreux experts métiers pour intégrer chaque besoin.
-            Enfin, j'ai suivi une méthodologie de développement agile pour livrer un produit fonctionnel et adapté.
+            Projet d&apos;envergure, j&apos;ai conçu une application Web s&apos;intégrant dans un SI comptable en cours de développement.
+            J&apos;ai pris en compte chaque échange avec les nombreux experts métiers pour intégrer chaque besoin.
+            Enfin, j&apos;ai suivi une méthodologie de développement agile pour livrer un produit fonctionnel et adapté.
           </p>
 
           <p>
@@ -227,12 +227,12 @@ export default function ArticleProjets() {
           <TypeProjet type="etudiant" competences={[1, 2, 6]} />
           <p>
             <em>
-              Transformer un livre interractif en application web : c'est le défi que nous a lancé l'IUT de Lannion pour notre dernier projet d'équipe.
+              Transformer un livre interractif en application web : c&apos;est le défi que nous a lancé l&apos;IUT de Lannion pour notre dernier projet d&apos;équipe.
             </em>
           </p>
 
           <p>
-            Ce projet Web a été l'occasion de mettre en pratique nos capacités d'analyse et de résolution de problèmes, face à toutes les contraintes rencontrées.
+            Ce projet Web a été l&apos;occasion de mettre en pratique nos capacités d&apos;analyse et de résolution de problèmes, face à toutes les contraintes rencontrées.
             Nous avons dû adapter notre vision du projet pour coller au plus près des attentes de notre client, tout en apportant notre touche personnelle.
           </p>
 
@@ -250,7 +250,7 @@ export default function ArticleProjets() {
           <TypeProjet type="personnel" competences={[1, 2, 5]} />
           <p>
             <em>
-              Mon portfolio, vieillissant, a besoin d'un coup de jeune. Je décide de le refondre pour le moderniser et le rendre plus attractif.
+              Mon portfolio, vieillissant, a besoin d&apos;un coup de jeune. Je décide de le refondre pour le moderniser et le rendre plus attractif.
             </em>
           </p>
 
