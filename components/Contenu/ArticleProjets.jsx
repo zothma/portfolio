@@ -240,6 +240,10 @@ export default function ArticleProjets() {
             <strong>Réalisations</strong><br />
             Analyse du besoin, conception, développement, accessibilité, gestion de projet.
           </p>
+
+          <p>
+            <Bouton type={TypesBtn.github} url={process.env.LINKS.PROJET_LIVRE} />
+          </p>
         </TLData>
 
         <TLData date="2024" titre="Refonte du portfolio">
