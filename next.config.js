@@ -15,6 +15,13 @@ module.exports = {
       DSD: "https://eduscol.education.fr/1139/certification-de-langue-allemande",
       GOETHE: "https://www.goethe.de/ins/fr/fr/sta/par/prf/gzb2.cfm",
       IUT_LANNION: "https://iut-lannion.univ-rennes1.fr/",
+      PROJET_YAMS: "https://github.com/zothma/yams/",
+      PROJET_FABRIK: "https://drive.google.com/drive/folders/1ebsTWhAVJLo_0OtBO2G9IrFOpx1axAB6?usp=sharing",
+      PROJET_KOHFRAIS: "https://github.com/zothma/kohfrais",
+      PROJET_PORTFOLIO: "https://github.com/zothma/portfolio",
+      PROJET_LIVRE: "https://github.com/sae56-aleph",
+      PRESENTATION_FABRIK: "https://www.pepitebretagne.fr/fabrik-ta-pepite-3-mois-pour-exploser-ton-idee",
+      KOHFRAIS: "https://zothma.github.io/projects/kohfrais/"
     },
     MAILTO: "enzo.maros@gmail.com",
     PHONE: "+33 7 55 61 76 80",

@@ -35,6 +35,9 @@ function generateGridTemplateArea(size, staggered = false) {
 }
 
 export default function Timeline({ enCours, children }) {
+  // Si un seul enfant est passé, on le met dans un tableau
+  if (!Array.isArray(children)) children = [children];
+
   const childrenCount = children.length;
   const enCoursBorne = Math.min(enCours, childrenCount);
   const gridStyle = {
